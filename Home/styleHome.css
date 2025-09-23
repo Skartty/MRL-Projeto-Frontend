@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: #f4f4f4;
@@ -48,11 +49,18 @@ body {
 }
 
 .btn-outline {
+  border: 2px solid #e65c00; /* cor da borda */
+  color: #e65c00;            /* cor do texto */
   padding: 8px 20px;
-  border: 1px solid #ff6f00;
   border-radius: 20px;
-  color: #ff6f00;
   text-decoration: none;
+  transition: all 0.3s ease; /* suaviza o efeito */
+}
+
+/* Efeito ao passar o mouse */
+.btn-outline:hover {
+  background-color: #e65c00; /* fundo laranja */
+  color: #fff;               /* texto branco */
 }
 
 /* ===== BANNER ===== */
@@ -248,7 +256,7 @@ body {
 
 .servico-card img {
   width: 100%;
-  height: 735px; /* 🔹 Altura reduzida */
+  height: 680px; /* 🔹 Altura reduzida */
   object-fit: cover;
   border-radius: 5px;
 }
@@ -266,6 +274,14 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin: 0;
+}
+
+.servico-card img {
+  transition: transform 0.8s ease; /* suaviza a animação */
+}
+
+.servico-card:hover img {
+  transform: scale(1.05); /* aumenta hover */
 }
 
 /* Botões do carrossel */
@@ -620,6 +636,12 @@ body {
     text-align: center;  
   }
 }
+
+
+/* ====================== */
+/* AJUSTES */
+/* ====================== */
+
 
 .footer a {
   color: #ffffff79 !important;
