@@ -1,28 +1,390 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRL Desenvolvimento de Software</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-          crossorigin="anonymous">
-
-    <link rel="stylesheet" href="styleAdm.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MRL</title>
+  <link rel="stylesheet" href="styleAdm.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container mt-5">
-        <h1>Bem-vindo ao projeto!</h1>
-        <p>Conteúdo aqui...</p>
+  <!-- ===== HEADER / MENU ===== --> 
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/Logo.png" alt="Imagem sobre MRL">
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
-            crossorigin="anonymous"></script>
+    <nav class="nav">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#cadastro">Cadastro</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
+    <!-- 🔹 Ícone clicável que leva para a Home -->
+    <a href="#home" class="btn-home">
+      <img src="imagens/Icon_Sair.png" alt="Voltar para Home">
+    </a>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner">
+    <img src="imagens/Fundo_User.png" alt="Banner de fundo">
+    <div class="banner-content">
+      <h1>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</h1>
+    </div>
+  </section>
+
+
+  <!-- ===== MENU RÁPIDO ===== -->
+  <section class="menu-rapido">
+    <h2>MENU</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="imagens/icon_perfil.png" alt="Perfil">
+        <p>MEU PERFIL</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_contratos.png" alt="Contratos">
+        <p>MEUS CONTRATOS</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_pagamentos.png" alt="Pagamentos">
+        <p>MEUS PAGAMENTOS</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_avaliacoes.png" alt="Avaliações">
+        <p>MINHAS AVALIAÇÕES</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos">
+  <div class="titulo-servicos">
+    <hr class="linha-laranja">
+    <h2>SERVIÇOS DISPONÍVEIS</h2>    
+  </div>
+
+  <div class="carousel">
+    <button class="prev">&#10094;</button>
+
+    <div class="carousel-track">
+      <!-- Card de cada serviço -->
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Mobile.png" alt="Serviço 1">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO MOBILE</h3>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Web.png" alt="Serviço 2">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DE WEB SITES</h3>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Micro.png" alt="Serviço 3">
+        <div class="servico-texto">
+          <h3>MICROSERVIÇOS & APIS</h3>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Desk.png" alt="Serviço 3">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DESKTOP</h3>
+        </div>
+      </div>
+
+      <!-- ... completar os 9 serviços ... -->
+
+    </div>
+
+      <button class="next">&#10095;</button>
+    </div>
+
+    <div class="btn-catalogo">
+        <a href="#">Catálogo</a>
+    </div>
+
+</section>
+
+  <!-- ===== CONTRATOS ===== -->
+<section class="contratos">
+  <h2>MEUS CONTRATOS</h2>
+
+  <!-- Card de contrato -->
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento de Web Sites</h3>
+      <span class="status">Ativo</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+      <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+    </div>
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="status">Cancelado</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+      <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+    </div>
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento de Micro Serviços</h3>
+      <span class="status">Concluído</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>  
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="status">Ativo</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="status">Ativo</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="status">Ativo</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="contrato-card">
+    <div class="contrato-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="status">Ativo</span>
+      <span class="data">12/07/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="contrato-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+</section>
+
+
+  <!-- ===== PAGAMENTOS ===== -->
+<section class="pagamentos">
+  <h2>MEUS PAGAMENTOS</h2>
+
+  <!-- Card de pagamentos -->
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento de Web Sites</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+      <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+    </div>
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+      <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+    </div>
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento de Micro Serviços</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>  
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+
+  <div class="pagamento-card">
+    <div class="pagamento-header">
+      <h3>Desenvolvimento Mobile</h3>
+      <span class="data-contrato">12/07/2025</span>
+      <span class="data-vencimento">12/08/2025</span>
+      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+    </div>
+    <div class="pagamento-detalhes">
+      <p><strong>Descrição:</strong> API para integração com ERP.</p>
+      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+    </div>
+  </div>
+  
+</section>
+
+<!-- ===== AVALIAÇÕES ===== -->
+<section class="avaliacoes-dashboard">
+  <h2>AVALIAÇÕES</h2>
+
+  <form class="avaliacao-form">
+    <!-- Estrelas -->
+    <div class="campo">
+      <label for="estrelas">Estrelas</label>
+      <div class="rating">
+        <input type="radio" id="estrela5" name="estrela" value="5">
+        <label for="estrela5">★</label>
+        <input type="radio" id="estrela4" name="estrela" value="4">
+        <label for="estrela4">★</label>
+        <input type="radio" id="estrela3" name="estrela" value="3">
+        <label for="estrela3">★</label>
+        <input type="radio" id="estrela2" name="estrela" value="2">
+        <label for="estrela2">★</label>
+        <input type="radio" id="estrela1" name="estrela" value="1">
+        <label for="estrela1">★</label>
+      </div>
+    </div>
+
+    <!-- Serviço -->
+    <div class="campo">
+      <label for="servico">Serviço</label>
+      <select id="servico" name="servico">
+        <option value="">Selecione...</option>
+        <option value="mobile">Desenvolvimento Mobile</option>
+        <option value="web">Desenvolvimento de Web Sites</option>
+        <option value="api">Desenvolvimento de Micro Serviços/APIs</option>
+        <option value="desktop">Desenvolvimento Desktop</option>
+      </select>
+    </div>
+
+    <!-- Comentário -->
+    <div class="campo">
+      <label for="comentario">Comentário</label>
+      <textarea id="comentario" name="comentario" rows="4"></textarea>
+    </div>
+
+    <!-- Botão -->
+    <div class="form-actions">
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</section>
+
+
+  <!-- RODAPÉ -->
+<footer class="footer">
+  <!-- Botão central -->
+  <div class="footer-btn">
+    <button>Editar informações</button>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-info">
+      <p>Mrl Desenvolvimento de Software e Tecnologias Ltda</p>
+      <p>CNPJ: 50.163.155/0001-17</p>
+      <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELRIBEIRODEV@GMAIL.COM</a></p>
+      <p>Tel: <a href="tel:+551997077633">(19) 9707-7633</a></p>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="imagens/Logo_MRL.png" alt="Logo MRL">
+  </div>
+</footer>
+

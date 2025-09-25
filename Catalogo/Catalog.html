@@ -1,28 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRL Desenvolvimento de Software</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-          crossorigin="anonymous">
-
-    <link rel="stylesheet" href="styleCatalog.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MRL</title>
+  <link rel="stylesheet" href="styleCatalog.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container mt-5">
-        <h1>Bem-vindo ao projeto!</h1>
-        <p>Conteúdo aqui...</p>
+  <!-- ===== HEADER / MENU ===== --> 
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/Logo.png" alt="Imagem sobre MRL">
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
-            crossorigin="anonymous"></script>
+    <nav class="nav">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#cadastro">Cadastro</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
 
-    <script src="js/main.js"></script>
+    <!-- 🔹 Ícone clicável que leva para a Home -->
+    <a href="#home" class="btn-home">
+      <img src="imagens/Icon_Sair.png" alt="Voltar para Home">
+    </a>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner">
+    <img src="imagens/Fundo_User.png" alt="Banner de fundo">
+    <div class="banner-content">
+      <h1>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</h1>
+    </div>
+  </section>
+
+
+  <!-- ===== MENU RÁPIDO ===== -->
+  <section class="menu-rapido">
+    <h2>MENU</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="imagens/icon_perfil.png" alt="Perfil">
+        <p>MEU PERFIL</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_contratos.png" alt="Contratos">
+        <p>MEUS CONTRATOS</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_pagamentos.png" alt="Pagamentos">
+        <p>MEUS PAGAMENTOS</p>
+      </div>
+      <div class="menu-item">
+        <img src="imagens/icon_avaliacoes.png" alt="Avaliações">
+        <p>MINHAS AVALIAÇÕES</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CATÁLOGO DE SERVIÇOS ===== -->
+<section class="catalogo" id="servicos">
+  <h2>SERVIÇOS DISPONÍVEIS</h2>
+  <hr class="linha-catalogo">
+
+  <div class="catalogo-grid">
+    <!-- Card 1 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Mobile.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+
+    <!-- Card 2 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Web.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Micro.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Desk.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Ecom.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Int Aut.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Dev Cloud.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Sist Corp.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card-servico">
+    <div class="card-imagem">
+        <img src="imagens/Img Man Sup.png" alt="Desenvolvimento Mobile">
+        <div class="preco"><p>R$ 250</p></div>
+    </div>
+
+    <div class="card-conteudo">
+        <h3>DESENVOLVIMENTO MOBILE</h3>
+        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <ul class="card-lista">
+        <li><i class="check-icon"></i> Android & iOS</li>
+        <li><i class="check-icon"></i> Push</li>
+        <li><i class="check-icon"></i> Layout intuitivo</li>
+        <li><i class="check-icon"></i> APIs integradas</li>
+        </ul>
+
+        <button class="btn-contratar">CONTRATAR</button>
+    </div>
+    </div>
+
+</section>
+
+
+  <!-- RODAPÉ -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p>Mrl Desenvolvimento de Software e Tecnologias Ltda</p>
+      <p>CNPJ: 50.163.155/0001-17</p>
+      <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELRIBEIRODEV@GMAIL.COM</a></p>
+      <p>Tel: <a href="tel:+551997077633">(19) 9707-7633</a></p>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+    </div>
+  </div>
+
+  <div class="footer-logo">
+    <img src="imagens/Logo_MRL.png" alt="Logo MRL">
+  </div>
+</footer>
+
 </body>
 </html>
