@@ -52,19 +52,44 @@ body {
   color: #ff6600;           /* cor do texto quando passar o mouse */
 }
 
-/* Ícone clicável */
-.btn-home img {
-  width: 30px;              /* tamanho do ícone */
-  height: 30px;
-  object-fit: contain;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+/* Container do botão */
+.btn-home {
+  position: relative; /* necessário pro tooltip funcionar */
+  display: inline-block;
 }
 
-/* Efeito de profundidade no hover */
+.btn-home img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Efeito do hover na imagem */
 .btn-home img:hover {
-  transform: scale(1.1) translateY(-3px); /* aumenta e "sobe" um pouco */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra para dar profundidade */
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Texto "Sair" oculto inicialmente */
+.btn-home::after {
+  content: "Sair";                /* texto exibido */
+  position: absolute;
+  bottom: -30px;                  /* posição abaixo do ícone */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);    /* fundo preto translúcido */
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;           /* evita atrapalhar o clique */
+  transition: opacity 0.3s ease;
+  white-space: nowrap;            /* evita quebra de linha */
+}
+
+/* Exibe o texto quando o mouse passa */
+.btn-home:hover::after {
+  opacity: 1;
 }
 
 /* ===== BANNER ===== */
@@ -133,6 +158,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .menu-item img {
@@ -626,7 +653,7 @@ body {
 .footer-social a {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px; /* espaço entre ícone e texto */
   color: #dddddd81;
   margin: 10px 0;
   text-decoration: none;
@@ -634,7 +661,20 @@ body {
 }
 
 .footer-social a:hover {
-  color: #e65100; /* cor destaque no hover */
+  color: #e65100;
+}
+
+.footer-social .social-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 6px;
+}
+
+.footer-social .social2-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
 }
 
 /* Logo centralizada embaixo */

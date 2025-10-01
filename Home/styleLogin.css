@@ -1,0 +1,100 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CONTAINER */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* CAIXA DE LOGIN */
+.login-box {
+  background: #a49e9e;
+  padding: 80px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 500px;
+  color: #fff;
+}
+
+.login-box h2 {
+  margin-bottom: 50px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+.login-box input::placeholder {
+  color: #ffffff80;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px;
+  background: #ff6f00;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background: #833400;
+}
+
+.link-cadastro {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.link-cadastro a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-cadastro a:hover {
+  text-decoration: underline;
+}
+
+/* MASCOTE */
+.login-robo img {
+  width: 250px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  .login-robo img {
+    width: 120px;
+  }
+}

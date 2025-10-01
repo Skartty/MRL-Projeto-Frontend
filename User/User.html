@@ -17,16 +17,16 @@
 
     <nav class="nav">
       <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#cadastro">Cadastro</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="../User/Perfil.html">Meu Perfil</a></li>
+        <li><a href="#contratos">Meus Contratos</a></li>
+        <li><a href="#pagamentos">Meus Pagamentos</a></li>
+        <li><a href="#avaliacoes">Minhas Avaliações</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
 
     <!-- 🔹 Ícone clicável que leva para a Home -->
-    <a href="#home" class="btn-home">
+    <a href="../Home/Home.html" class="btn-home">
       <img src="imagens/Icon_Sair.png" alt="Voltar para Home">
     </a>
   </header>
@@ -44,27 +44,30 @@
   <section class="menu-rapido">
     <h2>MENU</h2>
     <div class="menu-grid">
-      <div class="menu-item">
+      <a href= "../User/Perfil.html" class="menu-item">
         <img src="imagens/icon_perfil.png" alt="Perfil">
         <p>MEU PERFIL</p>
-      </div>
-      <div class="menu-item">
+      </a>
+
+      <a href="#contratos" class="menu-item">
         <img src="imagens/icon_contratos.png" alt="Contratos">
         <p>MEUS CONTRATOS</p>
-      </div>
-      <div class="menu-item">
+      </a>
+
+      <a href="#pagamentos" class="menu-item">
         <img src="imagens/icon_pagamentos.png" alt="Pagamentos">
         <p>MEUS PAGAMENTOS</p>
-      </div>
-      <div class="menu-item">
+      </a>
+
+      <a href="#avaliacoes" class="menu-item">
         <img src="imagens/icon_avaliacoes.png" alt="Avaliações">
         <p>MINHAS AVALIAÇÕES</p>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- SERVIÇOS -->
-  <section class="servicos">
+  <section id="servicos" class="servicos">
   <div class="titulo-servicos">
     <hr class="linha-laranja">
     <h2>SERVIÇOS DISPONÍVEIS</h2>    
@@ -111,13 +114,13 @@
     </div>
 
     <div class="btn-catalogo">
-        <a href="#">Catálogo</a>
+        <a href="../Catalogo/Catalog.html">Catálogo</a>
     </div>
 
 </section>
 
   <!-- ===== CONTRATOS ===== -->
-<section class="contratos">
+<section id="contratos" class="contratos">
   <h2>MEUS CONTRATOS</h2>
 
   <!-- Card de contrato -->
@@ -216,7 +219,7 @@
 
 
   <!-- ===== PAGAMENTOS ===== -->
-<section class="pagamentos">
+<section id="pagamentos" class="pagamentos">
   <h2>MEUS PAGAMENTOS</h2>
 
   <!-- Card de pagamentos -->
@@ -314,7 +317,7 @@
 </section>
 
 <!-- ===== AVALIAÇÕES ===== -->
-<section class="avaliacoes-dashboard">
+<section id="avaliacoes" class="avaliacoes-dashboard">
   <h2>AVALIAÇÕES</h2>
 
   <form class="avaliacao-form">
@@ -362,7 +365,7 @@
 
 
   <!-- RODAPÉ -->
-<footer class="footer">
+<footer id="contato" class="footer">
   <div class="footer-content">
     <div class="footer-info">
       <p>Mrl Desenvolvimento de Software e Tecnologias Ltda</p>
@@ -372,10 +375,17 @@
     </div>
 
     <div class="footer-social">
-      <a href="#"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
-    </div>
+  <a href="#">
+    <img src="imagens/Icon_Git.png" alt="GitHub" class="social2-icon"> GitHub
+  </a>
+  <a href="#">
+    <img src="imagens/Icon_Insta.png" alt="Instagram" class="social2-icon"> Instagram
+  </a>
+  <a href="#">
+    <img src="imagens/Icon_Link.png" alt="LinkedIn" class="social-icon"> Linkedin
+  </a>
+</div>
+
   </div>
 
   <div class="footer-logo">

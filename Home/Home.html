@@ -29,7 +29,7 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a href="#login" class="btn-outline">Entrar</a>
+    <a href="login.html" class="btn-outline">Entrar</a>
   </header>
 
   <!-- ===== BANNER ===== -->
@@ -46,7 +46,7 @@
   </section>
 
   <!-- SOBRE -->
-  <section class="sobre">
+  <section id="sobre" class="sobre">
   <h2>SOBRE A <span>MRL</span></h2>
   <div class="sobre-container">
 
@@ -74,7 +74,7 @@
 </section>
 
   <!-- SERVIÇOS -->
-  <section class="servicos">
+  <section id="servicos" class="servicos">
   <h2>NOSSOS SERVIÇOS</h2>
 
   <div class="carousel">
@@ -85,7 +85,11 @@
       <div class="servico-card">
         <img src="imagens/Img_Dev_Mobile.png" alt="Serviço 1">
         <div class="servico-texto">
-          <h3>DESENVOLVIMENTO MOBILE</h3>
+          <h3>DESENVOLVIMENTO MOBILE</h3>          
+        </div>
+      <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
         </div>
       </div>
 
@@ -94,6 +98,10 @@
         <div class="servico-texto">
           <h3>DESENVOLVIMENTO DE WEB SITES</h3>
         </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
+        </div>
       </div>
 
       <div class="servico-card">
@@ -101,16 +109,77 @@
         <div class="servico-texto">
           <h3>MICROSERVIÇOS & APIS</h3>
         </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="imagens/Img_Dev_Desk.png" alt="Serviço 3">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DESKTOP</h3>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
         </div>
       </div>
 
-      <!-- ... completar os 9 serviços ... -->
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Desk.png" alt="Serviço 4">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DESKTOP</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Ecom.png" alt="Serviço 5">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>          
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Int.png" alt="Serviço 6">
+        <div class="servico-texto">
+          <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_cloud.png" alt="Serviço 7">
+        <div class="servico-texto">
+          <h3>DEVOPS & CLOUD</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Sist_Corp.png" alt="Serviço 8">
+        <div class="servico-texto">
+          <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Man_Sup.png" alt="Serviço 9">
+        <div class="servico-texto">
+          <h3>MANUTENÇÃO E SUPORTE</h3>
+          <!-- Descrição aparece no hover -->          
+        </div>
+        <div class="descricao-servico">
+          <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
+        </div>
+      </div>
 
     </div>
 
@@ -121,28 +190,28 @@
   <!-- ===== CADASTRO ===== -->
   <section id="cadastro" class="cadastro">
   <h2>Cadastre-se</h2>
-  <form>
-    <div class="linha1">
-      <input type="text" placeholder="Nome" required>
-    </div>
-    <div class="linha1">
-      <input type="email" placeholder="E-mail" required>
-    </div>
-    <div class="linha">
-      <input type="text" placeholder="CPF/CNPJ" required>
-      <input type="tel" placeholder="Telefone">
-    </div>
-    <div class="linha">
-      <input type="password" placeholder="Senha" required>
-      <input type="password" placeholder="Confirme sua Senha" required>
-    </div>
+    <form>
+      <div class="linha1">
+        <input type="text" placeholder="Nome" required>
+      </div>
+      <div class="linha1">
+        <input type="email" placeholder="E-mail" required>
+      </div>
+      <div class="linha">
+        <input type="text" placeholder="CPF/CNPJ" required>
+        <input type="tel" placeholder="Telefone">
+      </div>
+      <div class="linha">
+        <input type="password" placeholder="Senha" required>
+        <input type="password" placeholder="Confirme sua Senha" required>
+      </div>
 
-    <!-- botão agora em uma div para centralizar -->
-    <div class="botoes">
-      <button type="submit" class="btn-primary">Cadastrar</button>
-    </div>
-  </form>
-  <img src="imagens/Robo_Cadastro.png" alt="Robo mascote" class="cadastro-robo">
+      <!-- botão agora em uma div para centralizar -->
+      <div class="botoes">
+        <button type="submit" class="btn-primary">Cadastrar</button>
+      </div>
+    </form>
+    <img src="imagens/Robo_Cadastro.png" alt="Robo mascote" class="cadastro-robo">
 </section>
 
   <!-- ===== AVALIAÇÕES ===== -->
@@ -165,7 +234,7 @@
   </section>
 
   <!-- RODAPÉ -->
-<footer class="footer">
+<footer id="contato" class="footer">
   <div class="footer-content">
     <div class="footer-info">
       <p>Mrl Desenvolvimento de Software e Tecnologias Ltda</p>
@@ -185,6 +254,8 @@
     <img src="imagens/Logo_MRL.png" alt="Logo MRL">
   </div>
 </footer>
+
+<script src="scriptHome.js"></script>
 
 </body>
 </html>
