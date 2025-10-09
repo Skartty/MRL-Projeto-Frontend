@@ -413,10 +413,29 @@ body {
   width: 150px;
 }
 
+/* login social */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 10px 0;
+}
+
+.social-login img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-login img:hover {
+  transform: scale(1.1);
+}
+
+
 .cadastro .botoes {
   display: flex;
   justify-content: center; /* centraliza o botão */
-  margin-top: 20px;
 }
 
 .cadastro .botoes .btn-primary {

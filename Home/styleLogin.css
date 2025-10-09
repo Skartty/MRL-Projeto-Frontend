@@ -17,27 +17,35 @@ body {
 /* CONTAINER */
 .login-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 40px;
+  align-items: center;
 }
 
 /* CAIXA DE LOGIN */
 .login-box {
+  display: flex; /* agora lado a lado */
+  align-items: center;
+  justify-content: space-between;
   background: #a49e9e;
-  padding: 80px;
+  padding: 60px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  text-align: center;
-  width: 500px;
+  width: 800px; /* aumentei para caber formulário + robô */
   color: #fff;
+  gap: 40px; /* espaço entre form e robo */
 }
 
-.login-box h2 {
-  margin-bottom: 50px;
+/* COLUNA FORMULÁRIO */
+.login-form {
+  flex: 1;
 }
 
-.login-box input {
+.login-form h2 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.login-form input {
   width: 100%;
   padding: 15px;
   margin-bottom: 20px;
@@ -47,10 +55,30 @@ body {
   color: #fff;
 }
 
-.login-box input::placeholder {
+.login-form input::placeholder {
   color: #ffffff80;
 }
 
+/* ÍCONES DE LOGIN SOCIAL */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0 30px;
+}
+
+.social-login img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-login img:hover {
+  transform: scale(1.1);
+}
+
+/* BOTÃO */
 .btn-login {
   width: 100%;
   padding: 15px;
@@ -62,16 +90,17 @@ body {
   cursor: pointer;
   transition: background 0.3s;
   font-size: 16px;
-  margin-top: 10px;
 }
 
 .btn-login:hover {
   background: #833400;
 }
 
+/* LINK DE CADASTRO */
 .link-cadastro {
   margin-top: 20px;
   font-size: 15px;
+  text-align: center;
 }
 
 .link-cadastro a {
@@ -84,17 +113,21 @@ body {
   text-decoration: underline;
 }
 
-/* MASCOTE */
+/* COLUNA ROBÔ */
 .login-robo img {
   width: 250px;
 }
 
 /* RESPONSIVO */
-@media (max-width: 768px) {
-  .login-container {
-    flex-direction: column;
+@media (max-width: 900px) {
+  .login-box {
+    flex-direction: column; /* em telas menores fica embaixo */
+    width: 90%;
+    padding: 40px;
   }
+
   .login-robo img {
-    width: 120px;
+    width: 150px;
+    margin-top: 20px;
   }
 }

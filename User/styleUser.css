@@ -179,32 +179,16 @@ body {
 /* SERVIÇOS */
 .servicos {
   padding: 60px 5%;
+  background: #fff;
   text-align: center;
   position: relative;
   margin-bottom: 2%;
 }
 
-.titulo-servicos {
-  display: flex;
-  align-items: center;
-  justify-content: right; /* título fica alinhado à direita */
-  margin-bottom: 30px;
-  margin-right: 6.3%;
-}
-
-.linha-laranja {
-  flex: 0.92; /* ocupa todo o espaço restante à esquerda */
-  border:#ff6600;
-  border-top: 3px solid #ff6600; /* cor laranja da linha */
-  margin-right: 15px; /* espaço entre linha e texto */
-}
-
-.titulo-servicos h2 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #000000;
-  margin: 0;
-  text-transform: uppercase;
+.servicos h2 {
+  font-size: 28px;
+  margin-bottom: 70px;
+  color: #222;
 }
 
 .carousel {
@@ -227,8 +211,36 @@ body {
   margin: 0 10px;
   position: relative;
   flex-shrink: 0;
-  margin-bottom: 2%;
+  justify-content: center;
 }
+
+/* Descrição oculta inicialmente */
+.descricao-servico {
+  position: absolute;
+  left: 50%;
+  bottom: 20%; /* distância do fundo do card */
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 90%; /* ocupa quase toda a largura do card */
+  padding: 24px 18px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  box-sizing: border-box;
+  font-size: 1.08rem;
+  text-align: center;
+  z-index: 2;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  align-self: center;
+}
+
+/* Exibir apenas quando passar o mouse */
+.servico-card:hover .descricao-servico {
+  opacity: 1;
+}
+
 
 .servico-card img {
   width: 100%;
@@ -265,8 +277,8 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.6);
+  color: #000000;
   border: none;
   font-size: 24px;
   cursor: pointer;
@@ -277,7 +289,7 @@ body {
 }
 
 .carousel button:hover {
-  background: rgba(0,0,0,0.8);
+  background: rgba(255, 115, 0, 0.8);
 }
 
 .carousel .prev {
@@ -286,6 +298,18 @@ body {
 
 .carousel .next {
   right: 30px;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 1480px; /* 🔹 largura p/ caber 3 cards (360px + margens) */
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .btn-catalogo a {
@@ -302,195 +326,20 @@ body {
   
   display: flex;
   justify-content: flex-end;
-  margin-right: 6.1%;
+  margin-right: 6.8%;
+  margin-top: 2%;
 }
 
 .btn-catalogo a:hover {
   background: #a74401; /* tom mais escuro no hover */
 }
 
-/* ===== MEUS CONTRATOS ===== */
-.contratos {
-  background: #8c8585;
-  margin: 25px auto;
-  padding: 40px 20px;
-  width: 79%;
-  border-radius: 15px;
-  color: #fff;
-  text-align: center;
-  max-height: 450px;       /* 🔹 Altura máxima do bloco */
-  overflow-y: auto;        /* 🔹 Scroll só dentro dele */
-}
-
-.contratos h2 {
-  margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-/* Linha principal do contrato */
-.contrato-card {
-  background: #6f6868;
-  margin: 10px auto;
-  margin-bottom: 1.5%;
-  border-radius: 6px;
-  width: 80%;
-  cursor: pointer; /* 🔹 toda a linha é clicável */
-  overflow: hidden;
-  transition: all 0.3s ease;  
-}
-
-.contrato-card :hover {
-  background-color: #5e5858;           /* cor quando passar o mouse */
-}
-
-.contrato-header {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr auto; /* título, status, data, ícone */
-  align-items: center;
-  padding: 12px 16px;
-  font-size: 14px;
-}
-
-.contrato-header span {
-  text-align: left;
-}
-
-.contrato-header h3{
-  margin-top: 1.5%;
-  text-align: left;
-  font-size: 16px;
-}
-
-.contrato-header .status {
-  text-align: center;
-  font-weight: bold;
-}
-
-.contrato-header .data {
-  text-align: right;
-  margin-right: 30%;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.contrato-header .expand {
-  display: flex;
-  text-align: right;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Detalhes que expandem */
-.contrato-detalhes {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 16px;
-  font-size: 13px;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.contrato-card.active .contrato-detalhes {
-  max-height: 200px;  /* altura suficiente para expandir */
-  padding: 12px 16px;
-}
-
-/* ===== MEUS PAGAMENTOS ===== */
-.pagamentos {
-  background: #8c8585;
-  margin: 25px auto;
-  margin-top: 5%;
-  padding: 40px 20px;
-  width: 79%;
-  border-radius: 15px;
-  color: #fff;
-  text-align: center;
-  max-height: 450px;       /* 🔹 Altura máxima do bloco */
-  overflow-y: auto;        /* 🔹 Scroll só dentro dele */
-}
-
-.pagamentos h2 {
-  margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-/* Linha principal do pagamento */
-.pagamento-card {
-  background: #6f6868;
-  margin: 10px auto;
-  margin-bottom: 1.5%;
-  border-radius: 6px;
-  width: 80%;
-  cursor: pointer; /* 🔹 toda a linha é clicável */
-  overflow: hidden;
-  transition: all 0.3s ease;  
-}
-
-.pagamento-card :hover {
-  background-color: #5e5858;           /* cor quando passar o mouse */
-}
-
-.pagamento-header {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr auto; /* título, data contrato, data vencimento, ícone */
-  align-items: center;
-  padding: 12px 16px;
-  font-size: 14px;
-}
-
-.pagamento-header span {
-  text-align: left;
-}
-
-.pagamento-header h3{
-  margin-top: 1.5%;
-  text-align: left;
-  font-size: 16px;
-}
-
-.pagamento-header .data-contrato {
-  text-align: right;
-  margin-right: 40%;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.pagamento-header .data-vencimento {
-  text-align: right;
-  margin-right: 30%;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.pagamento-header .expand {
-  display: flex;
-  text-align: right;
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Detalhes que expandem */
-.pagamento-detalhes {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 16px;
-  font-size: 13px;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.pagamento-card.active .pagamento-detalhes {
-  max-height: 200px;  /* altura suficiente para expandir */
-  padding: 12px 16px;
-}
 
 /* ===== AVALIAÇÕES ===== */
 .avaliacoes-dashboard {
   background: #8c8585;
   margin: 25px auto;
-  margin-top: 5%;
+  margin-top: 2%;
   padding: 40px 20px;
   width: 79%;
   border-radius: 15px;

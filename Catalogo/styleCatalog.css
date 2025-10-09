@@ -12,141 +12,253 @@ body {
   line-height: 1.5;
 }
 
-/* ===== HEADER ===== */
-.header {
+/* ===== CABEÇALHO SUPERIOR ===== */
+/* ===== CABEÇALHO SUPERIOR ===== */
+.catalogo-header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 10%;
-  background: #000000;
-  color: #fff;
-  position: fixed;
-  width: 100%;
+  background: #f4f4f4;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  position: fixed;   /* 🔹 fica fixo no topo */
   top: 0;
-  z-index: 10;
-}
-.header .logo img {
-  width: 70px;
-  height: 70px;
-  object-fit: contain; /* mantém proporção dentro do box */
+  left: 0;
+  width: 100%;       /* 🔹 ocupa toda a largura da tela */
+  z-index: 1000;     /* 🔹 sempre acima dos outros elementos */
 }
 
-.nav{
-  margin-right: 3%;
-}
 
-.nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding-top: 2.5%;
-}
-.nav a {
-  color: #ffffff;           /* cor inicial do texto */
-  text-decoration: none;    /* remove sublinhado */
-  padding: 10px 30px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.nav a:hover {
-  color: #ff6600;           /* cor do texto quando passar o mouse */
-}
-
-/* Ícone clicável */
-.btn-home img {
-  width: 30px;              /* tamanho do ícone */
-  height: 30px;
-  object-fit: contain;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.catalogo-header img {
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Efeito de profundidade no hover */
-.btn-home img:hover {
-  transform: scale(1.1) translateY(-3px); /* aumenta e "sobe" um pouco */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra para dar profundidade */
+.catalogo-header img:hover {
+  transform: scale(1.1);
 }
 
-/* ===== BANNER ===== */
-.banner {
-  position: relative;
-  height: 90vh;
+/* ===== BARRA DE BUSCA ===== */
+.search-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 0;              /* zera o padding lateral */
-  color: #fff;
-  overflow: hidden;
-  text-align: center;
-  margin-bottom: -1%;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 8px 15px;
+  width: 50%;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
-.banner img {
+
+.search-container input {
+  border: none;
+  outline: none;
+  width: 90%;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ===== MENU DE FILTROS ===== */
+.filtro-opcoes {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0; left: 0;
-  z-index: -2;
-}
-.banner::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
-.banner-content {
-  position: relative;
-  max-width: 850px;
-  z-index: 1;
-  text-align: right;
-  align-items: end;
-  margin: 0 auto;
-}
-.banner h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2%;
-  text-align: center;
+  top: 75px;
+  right: 17%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 220px;
+  transform: translateY(-20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 200;
 }
 
-/* ===== MENU RÁPIDO ===== */
-.menu-rapido {
-  padding: 80px 20px;
-  text-align: center;
+.filtro-opcoes.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
-.menu-rapido h2 {
-  font-size: 25px;
-  margin-bottom: 5%;
+.filtro-opcoes ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
 }
 
-.menu-grid {
-  display: flex;
-  justify-content: center;
-  gap: 250px;
-  flex-wrap: wrap;
+.filtro-opcoes li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-.menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.filtro-opcoes li:hover {
+  background: #f1f1f1;
 }
 
-.menu-item img {
-  width: 120px;
-  height: 120px;
+/* ===== CARRINHO ===== */
+.carrinho-container {
+  position: fixed;
+  top: 70px;
+  right: -400px;
+  width: 350px;
+  background: #fff;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 300;
 }
 
-.menu-item p {
-  font-size: 18px;
+.carrinho-container.active {
+  right: 0;
+}
+
+.carrinho-container h3 {
+  margin-bottom: 15px;
   font-weight: 600;
 }
 
-.menu-item p:hover {
-  color: #ff6600;           /* cor do texto quando passar o mouse */
+.carrinho-container ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.carrinho-container li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.carrinho-container li button {
+  background: transparent;
+  border: none;
+  color: #e65c00;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.carrinho-container li button:hover {
+  color: #cc0000;
+}
+
+.total {
+  font-weight: bold;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* ===== BADGE DO CARRINHO ===== */
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-carrinho {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 1px;
+  left: 35px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff6600; /* vermelho */
+  border-radius: 50%;
+  display: none; /* aparece só quando tiver itens */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Pagamento e agendamento */
+.pagamento-opcoes, .agendamento {
+  margin-top: 15px;
+}
+
+.pagamento-opcoes label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+#data-reuniao {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#finalizar-compra {
+  width: 100%;
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#finalizar-compra:hover {
+  background: #cc5200;
+}
+
+/* POPUP DE COMPRA */
+.purchase-popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+}
+
+.purchase-popup.active {
+  display: flex;
+}
+
+.purchase-popup-content {
+  background: #fff;
+  padding: 22px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.purchase-popup-content h3 {
+  margin-bottom: 8px;
+}
+
+.purchase-popup-content p {
+  margin-bottom: 16px;
+  color: #444;
+}
+
+#popup-close {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 
@@ -154,21 +266,7 @@ body {
 .catalogo {
   padding: 60px 10%;
   text-align: center;
-}
-
-.catalogo h2 {
-  font-size: 24px;
-  margin-bottom: 20px; /* menor distância para a linha */
-  text-transform: uppercase;
-}
-
-.linha-catalogo {
-  width: 91%;           /* largura da linha */
-  height: 3px;            /* espessura */
-  background-color: #ff6600;
-  border: none;           /* remove estilo padrão do <hr> */
-  margin: 0 auto 60px;    /* centraliza e afasta do próximo conteúdo */
-  border-radius: 2px;     /* cantos levemente arredondados */
+  margin-top: 5%;
 }
 
 .catalogo-grid {
@@ -225,6 +323,7 @@ body {
   align-items: flex-start;
   padding: 10px;
 }
+
 
 /* cria o triângulo atrás */
 .preco::before {

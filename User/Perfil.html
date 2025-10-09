@@ -37,10 +37,10 @@
       <button class="tab-button" data-tab="pagamentos">Meus Pagamentos</button>
     </div>
 
-    <!-- Conteúdo -->
+   <!-- Conteúdo -->
     <div class="tab-content active" id="perfil">
       <h2>Dados do Perfil</h2>
-      <form class="perfil-form">
+      <form class="perfil-form" id="perfilForm">
         <div class="form-group">
           <label>Nome:</label>
           <input type="text" value="Fulano da Silva" disabled>
@@ -59,28 +59,142 @@
         </div>
         <div class="form-group senha-group">
           <label>Senha:</label>
-          <input type="password" value="senha123" disabled id="senha">
-          <button type="button" class="btn-toggle" onclick="toggleSenha()">👁</button>
+          <div class="senha-wrapper">
+            <input type="password" value="senha123" disabled id="senha">
+            <button type="button" class="btn-toggle" onclick="toggleSenha()">
+              <img src="imagens/Img_Olho.png" alt="Mostrar senha">
+            </button>
+          </div>
         </div>
+
         <div class="form-actions">
-          <button type="button" class="btn-edit">Editar Informações</button>
+          <button type="button" class="btn-edit" id="btnEdit">Editar Informações</button>
         </div>
       </form>
     </div>
 
+
     <div class="tab-content" id="contratos">
       <h2>Meus Contratos</h2>
-      <p>🔧 Em desenvolvimento...</p>
+
+      <!-- Filtro -->
+      <div class="filtro-contratos">
+        <label for="filtro">Filtrar por:</label>
+        <select id="filtro">
+          <option value="alfabetica">Ordem Alfabética</option>
+          <option value="status">Status</option>
+          <option value="data">Data</option>
+        </select>
+      </div>
+
+      <!-- Lista de contratos -->
+      <div class="contratos-lista">
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento de Web Sites</h3>
+            <span class="status ativo">Ativo</span>
+            <span class="data">12/08/2025</span>
+            <span class="expand">
+              <img src="imagens/Expandir.png" alt="Expandir">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+            <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+          </div>
+        </div>
+
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento Mobile</h3>
+            <span class="status cancelado">Cancelado</span>
+            <span class="data">12/09/2025</span>
+            <span class="expand">
+              <img src="imagens/Expandir.png" alt="Expandir">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+            <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+          </div>
+        </div>
+
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento de Micro Serviços</h3>
+            <span class="status concluido">Concluído</span>
+            <span class="data">12/07/2025</span>
+            <span class="expand">
+              <img src="imagens/Expandir.png" alt="Expandir">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> API para integração com ERP.</p>
+            <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="tab-content" id="pagamentos">
-      <h2>Meus Pagamentos</h2>
-      <p>🔧 Em desenvolvimento...</p>
-    </div>
-  </section>
+    <h2>Meus Pagamentos</h2>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+    <!-- Filtro -->
+    <div class="filtro-pagamentos">
+      <label for="filtro-pag">Filtrar por:</label>
+      <select id="filtro-pag">
+        <option value="alfabetica">Ordem Alfabética</option>
+        <option value="contrato">Data do Contrato</option>
+        <option value="vencimento">Data de Vencimento</option>
+      </select>
+    </div>
+
+    <!-- Lista de pagamentos -->
+    <div class="pagamentos-lista">
+      <div class="pagamento-card">
+        <div class="pagamento-header">
+          <h3>Desenvolvimento de Web Sites</h3>
+          <span class="data-contrato">12/07/2025</span>
+          <span class="data-vencimento">12/08/2025</span>
+          <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+        </div>
+        <div class="pagamento-detalhes">
+          <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+          <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+        </div>
+      </div>
+
+      <div class="pagamento-card">
+        <div class="pagamento-header">
+          <h3>Desenvolvimento Mobile</h3>
+          <span class="data-contrato">12/07/2025</span>
+          <span class="data-vencimento">12/08/2025</span>
+          <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+        </div>
+        <div class="pagamento-detalhes">
+          <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+          <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+        </div>
+      </div>
+
+      <div class="pagamento-card">
+        <div class="pagamento-header">
+          <h3>Desenvolvimento de Micro Serviços</h3>
+          <span class="data-contrato">12/07/2025</span>
+          <span class="data-vencimento">12/08/2025</span>
+          <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
+        </div>
+        <div class="pagamento-detalhes">
+          <p><strong>Descrição:</strong> API para integração com ERP.</p>
+          <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+        </div>
+      </div>
+    </div>  
+  </section>
+    
+
+  <!-- RODAPÉ -->
+  <footer id="contato" class="footer">
     <div class="footer-content">
       <div class="footer-info">
         <p>Mrl Desenvolvimento de Software e Tecnologias Ltda</p>
@@ -90,42 +204,25 @@
       </div>
 
       <div class="footer-social">
-        <a href="#"><img src="../imagens/Icon_Git.png" alt="GitHub"> GitHub</a>
-        <a href="#"><img src="../imagens/Icon_Insta.png" alt="Instagram"> Instagram</a>
-        <a href="#"><img src="../imagens/Icon_Link.png" alt="LinkedIn"> Linkedin</a>
+        <a href="#">
+          <img src="imagens/Icon_Git.png" alt="GitHub" class="social2-icon"> GitHub
+        </a>
+        <a href="#">
+          <img src="imagens/Icon_Insta.png" alt="Instagram" class="social2-icon"> Instagram
+        </a>
+        <a href="#">
+          <img src="imagens/Icon_Link.png" alt="LinkedIn" class="social-icon"> Linkedin
+        </a>
       </div>
+
     </div>
 
     <div class="footer-logo">
-      <img src="../imagens/Logo_MRL.png" alt="Logo MRL">
+      <img src="imagens/Logo_MRL.png" alt="Logo MRL">
     </div>
   </footer>
 
-  <script>
-    // Alternar abas
-    const buttons = document.querySelectorAll(".tab-button");
-    const contents = document.querySelectorAll(".tab-content");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        buttons.forEach(b => b.classList.remove("active"));
-        contents.forEach(c => c.classList.remove("active"));
-
-        btn.classList.add("active");
-        document.getElementById(btn.dataset.tab).classList.add("active");
-      });
-    });
-
-    // Mostrar/ocultar senha
-    function toggleSenha() {
-      const input = document.getElementById("senha");
-      if (input.type === "password") {
-        input.type = "text";
-      } else {
-        input.type = "password";
-      }
-    }
-  </script>
+<script src="scriptPerfil.js"></script>
 
 </body>
 </html>

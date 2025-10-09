@@ -18,8 +18,8 @@
     <nav class="nav">
       <ul>
         <li><a href="../User/Perfil.html">Meu Perfil</a></li>
-        <li><a href="#contratos">Meus Contratos</a></li>
-        <li><a href="#pagamentos">Meus Pagamentos</a></li>
+        <li><a href="../User/Perfil.html">Meus Contratos</a></li>
+        <li><a href="../User/Perfil.html">Meus Pagamentos</a></li>
         <li><a href="#avaliacoes">Minhas Avaliações</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -49,12 +49,12 @@
         <p>MEU PERFIL</p>
       </a>
 
-      <a href="#contratos" class="menu-item">
+      <a href="../User/Perfil.html" class="menu-item">
         <img src="imagens/icon_contratos.png" alt="Contratos">
         <p>MEUS CONTRATOS</p>
       </a>
 
-      <a href="#pagamentos" class="menu-item">
+      <a href="../User/Perfil.html" class="menu-item">
         <img src="imagens/icon_pagamentos.png" alt="Pagamentos">
         <p>MEUS PAGAMENTOS</p>
       </a>
@@ -68,10 +68,7 @@
 
   <!-- SERVIÇOS -->
   <section id="servicos" class="servicos">
-  <div class="titulo-servicos">
-    <hr class="linha-laranja">
-    <h2>SERVIÇOS DISPONÍVEIS</h2>    
-  </div>
+  <h2>NOSSOS SERVIÇOS</h2>
 
   <div class="carousel">
     <button class="prev">&#10094;</button>
@@ -81,7 +78,11 @@
       <div class="servico-card">
         <img src="imagens/Img_Dev_Mobile.png" alt="Serviço 1">
         <div class="servico-texto">
-          <h3>DESENVOLVIMENTO MOBILE</h3>
+          <h3>DESENVOLVIMENTO MOBILE</h3>          
+        </div>
+      <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
         </div>
       </div>
 
@@ -90,6 +91,10 @@
         <div class="servico-texto">
           <h3>DESENVOLVIMENTO DE WEB SITES</h3>
         </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
+        </div>
       </div>
 
       <div class="servico-card">
@@ -97,21 +102,82 @@
         <div class="servico-texto">
           <h3>MICROSERVIÇOS & APIS</h3>
         </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="imagens/Img_Dev_Desk.png" alt="Serviço 3">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DESKTOP</h3>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
         </div>
       </div>
 
-      <!-- ... completar os 9 serviços ... -->
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Desk.png" alt="Serviço 4">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DESKTOP</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Ecom.png" alt="Serviço 5">
+        <div class="servico-texto">
+          <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>          
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_Int.png" alt="Serviço 6">
+        <div class="servico-texto">
+          <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Dev_cloud.png" alt="Serviço 7">
+        <div class="servico-texto">
+          <h3>DEVOPS & CLOUD</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Sist_Corp.png" alt="Serviço 8">
+        <div class="servico-texto">
+          <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
+        </div>
+        <!-- Descrição aparece no hover -->
+        <div class="descricao-servico">
+          <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
+        </div>
+      </div>
+
+      <div class="servico-card">
+        <img src="imagens/Img_Man_Sup.png" alt="Serviço 9">
+        <div class="servico-texto">
+          <h3>MANUTENÇÃO E SUPORTE</h3>
+          <!-- Descrição aparece no hover -->          
+        </div>
+        <div class="descricao-servico">
+          <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
+        </div>
+      </div>
 
     </div>
 
-      <button class="next">&#10095;</button>
-    </div>
+    <button class="next">&#10095;</button>
+  </div>
 
     <div class="btn-catalogo">
         <a href="../Catalogo/Catalog.html">Catálogo</a>
@@ -119,202 +185,6 @@
 
 </section>
 
-  <!-- ===== CONTRATOS ===== -->
-<section id="contratos" class="contratos">
-  <h2>MEUS CONTRATOS</h2>
-
-  <!-- Card de contrato -->
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento de Web Sites</h3>
-      <span class="status">Ativo</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
-      <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
-    </div>
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="status">Cancelado</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
-      <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
-    </div>
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento de Micro Serviços</h3>
-      <span class="status">Concluído</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>  
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="status">Ativo</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="status">Ativo</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="status">Ativo</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="contrato-card">
-    <div class="contrato-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="status">Ativo</span>
-      <span class="data">12/07/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="contrato-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-</section>
-
-
-  <!-- ===== PAGAMENTOS ===== -->
-<section id="pagamentos" class="pagamentos">
-  <h2>MEUS PAGAMENTOS</h2>
-
-  <!-- Card de pagamentos -->
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento de Web Sites</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
-      <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
-    </div>
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
-      <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
-    </div>
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento de Micro Serviços</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>  
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-
-  <div class="pagamento-card">
-    <div class="pagamento-header">
-      <h3>Desenvolvimento Mobile</h3>
-      <span class="data-contrato">12/07/2025</span>
-      <span class="data-vencimento">12/08/2025</span>
-      <span class="expand"><img src="imagens/Expandir.png" alt="Expandir"></span>
-    </div>
-    <div class="pagamento-detalhes">
-      <p><strong>Descrição:</strong> API para integração com ERP.</p>
-      <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
-    </div>
-  </div>
-  
-</section>
 
 <!-- ===== AVALIAÇÕES ===== -->
 <section id="avaliacoes" class="avaliacoes-dashboard">
@@ -347,6 +217,11 @@
         <option value="web">Desenvolvimento de Web Sites</option>
         <option value="api">Desenvolvimento de Micro Serviços/APIs</option>
         <option value="desktop">Desenvolvimento Desktop</option>
+        <option value="desktop">Desenvolvimento de E-commerce</option>
+        <option value="desktop">Integrações e Automação</option>
+        <option value="desktop">DevOps & Cloud</option>
+        <option value="desktop">Sistemas Corporativos (ERP/CRM)</option>
+        <option value="desktop">Manutenção e Suporte</option>        
       </select>
     </div>
 
@@ -392,6 +267,8 @@
     <img src="imagens/Logo_MRL.png" alt="Logo MRL">
   </div>
 </footer>
+
+<script src="scriptUser.js"></script>
 
 </body>
 </html>

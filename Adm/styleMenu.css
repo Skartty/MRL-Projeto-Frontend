@@ -1,12 +1,13 @@
 /* ===== RESET ===== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Montserrat', sans-serif;
-  background: #f4f4f4;
   color: #333;
   line-height: 1.5;
 }
@@ -151,7 +152,7 @@ body {
 .tab-button {
   background: none;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 60px;
   cursor: pointer;
   font-weight: bold;
   color: #555;
@@ -161,284 +162,44 @@ body {
   color: #ff6600;
   border-bottom: 2px solid #ff6600;
 }
-
-/* Conteúdo */
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-/* Formulário perfil */
-.perfil-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.tab-content {
+  display: none;
 }
-.form-group {
-  display: flex;
-  flex-direction: column;
+.tab-content.active {
+  display: block;
 }
-.form-group label { font-weight: bold; margin-bottom: 5px; }
-.form-group input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+
+/* Estilo das avaliações */
+.avaliacao-card {
   background: #f8f8f8;
-  color: #333;
-}
-.form-group input:not(:disabled) {
-  background: #fff;
-  border-color: #e65c00;
-}
-
-
-/* Grupo de senha */
-.senha-group {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Wrapper para o input + ícone */
-.senha-wrapper {
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
   position: relative;
-  display: flex;
-  align-items: center;
 }
-
-.senha-wrapper input {
-  width: 100%;
-  padding: 10px 40px 10px 10px; /* espaço à direita pro ícone */
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #f8f8f8;
-  color: #333;
-}
-
-.senha-wrapper input:disabled {
-  background: #eaeaea;
-}
-
-/* Botão do olho dentro do input */
-.btn-toggle {
+.icone-olho {
   position: absolute;
-  right: 10px;
-  background: none;
-  border: none;
+  right: 15px;
+  top: 15px;
   cursor: pointer;
-  padding: 0;
+  transition: transform 0.2s;
+}
+.icone-olho:hover {
+  transform: scale(1.1);
 }
 
-.btn-toggle img {
+/* Botão de download */
+.btn-download img {
+  transition: transform 0.2s ease;
   width: 20px;
   height: 20px;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+  margin-left: 10%;
+}
+.btn-download:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
-.btn-toggle img:hover {
-  opacity: 1;
-}
-
-/* Botão editar */
-.form-actions { text-align: right; }
-.btn-edit {
-  background: #e65c00;
-  color: #fff;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 3%;
-}
-.btn-edit:hover { background: #cc5200; }
-
-/* ===== MEUS CONTRATOS ===== */
-
-/* Filtro superior */
-.filtro-contratos {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.filtro-contratos label {
-  font-weight: bold;
-}
-
-.filtro-contratos select {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-/* Lista de contratos */
-.contratos-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Card */
-.contrato-card {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 15px 20px;
-  transition: box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.contrato-card:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.contrato-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
-  align-items: center;
-  gap: 10px;
-}
-
-.contrato-header h3 {
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-  margin: 0;
-}
-
-.status {
-  font-weight: bold;
-  text-align: center;
-}
-
-.status.concluido { color: #e65c00; }
-.status.cancelado { color: #cc0000; }
-.status.ativo { color: #00994d; }
-
-.data {
-  text-align: right;
-  color: #777;
-  font-size: 14px;
-  margin-right: 15%;
-}
-
-.expand img {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Detalhes */
-.contrato-detalhes {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  font-size: 14px;
-  color: #333;
-}
-
-.contrato-card.active .contrato-detalhes {
-  max-height: 150px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  margin-top: 10px;
-}
-
-
-/* ===== MEUS PAGAMENTOS ===== */
-
-/* Filtro superior */
-.filtro-pagamentos {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.filtro-pagamentos label {
-  font-weight: bold;
-}
-
-.filtro-pagamentos select {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-/* Lista */
-.pagamentos-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Card */
-.pagamento-card {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 15px 20px;
-  transition: box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.pagamento-card:hover {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Header */
-.pagamento-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
-  align-items: center;
-  gap: 10px;
-}
-
-.pagamento-header h3 {
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-  margin: 0;
-}
-
-.data-contrato,
-.data-vencimento {
-  text-align: right;
-  color: #777;
-  font-size: 14px;
-  margin-right: 35%;
-}
-
-.data-vencimento {
-  color: #e65c00;
-  font-weight: bold;  
-}
-
-.expand img {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Detalhes */
-.pagamento-detalhes {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  font-size: 14px;
-  color: #333;
-}
-
-.pagamento-card.active .pagamento-detalhes {
-  max-height: 150px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  margin-top: 10px;
-}
 
 
 /* RODAPÉ */

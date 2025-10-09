@@ -9,72 +9,73 @@
 </head>
 <body>
 
-  <!-- ===== HEADER / MENU ===== --> 
-  <header class="header">
-    <div class="logo">
-      <img src="imagens/Logo.png" alt="Imagem sobre MRL">
-    </div>
+  <!-- ===== CABEÇALHO SUPERIOR ===== -->
+<header class="catalogo-header">
+  <img src="imagens/Icon_Voltar.png" alt="Voltar" class="btn-voltar">
 
-    <nav class="nav">
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#cadastro">Cadastro</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+  <div class="search-container">
+    <input type="text" placeholder="Buscar Serviço" id="search-bar">
+    <img src="imagens/Img_Filtro.png" alt="Filtro" class="btn-filtro">
+  </div>
 
-    <!-- 🔹 Ícone clicável que leva para a Home -->
-    <a href="#home" class="btn-home">
-      <img src="imagens/Icon_Sair.png" alt="Voltar para Home">
-    </a>
-  </header>
-
-  <!-- ===== BANNER ===== -->
-  <section class="banner">
-    <img src="imagens/Fundo_User.png" alt="Banner de fundo">
-    <div class="banner-content">
-      <h1>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</h1>
-    </div>
-  </section>
+  <!-- Carrinho com bolinha -->
+  <div class="cart-container">
+    <img src="imagens/Img_Carrinho.png" alt="Carrinho" class="btn-carrinho">
+    <span class="cart-badge" id="cart-badge"></span> <!-- 🔴 bolinha -->
+  </div>
+</header>
 
 
-  <!-- ===== MENU RÁPIDO ===== -->
-  <section class="menu-rapido">
-    <h2>MENU</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="imagens/icon_perfil.png" alt="Perfil">
-        <p>MEU PERFIL</p>
-      </div>
-      <div class="menu-item">
-        <img src="imagens/icon_contratos.png" alt="Contratos">
-        <p>MEUS CONTRATOS</p>
-      </div>
-      <div class="menu-item">
-        <img src="imagens/icon_pagamentos.png" alt="Pagamentos">
-        <p>MEUS PAGAMENTOS</p>
-      </div>
-      <div class="menu-item">
-        <img src="imagens/icon_avaliacoes.png" alt="Avaliações">
-        <p>MINHAS AVALIAÇÕES</p>
-      </div>
-    </div>
-  </section>
+<!-- ===== MENU DE FILTROS (oculto) ===== -->
+<div class="filtro-opcoes" id="filtro-opcoes">
+  <ul>
+    <li data-filtro="menor">Menor Valor</li>
+    <li data-filtro="maior">Maior Valor</li>
+    <li data-filtro="alfabetica">Ordem Alfabética</li>
+    <li data-filtro="vendidos">Serviços Mais Vendidos</li>
+  </ul>
+</div>
+
+<!-- ===== CARRINHO ===== -->
+<div class="carrinho-container" id="carrinho">
+  <h3>Seu Carrinho</h3>
+  <ul id="lista-carrinho"></ul>
+  <p class="total">Total: R$ <span id="total-valor">0</span></p>
+
+  <div class="pagamento-opcoes">
+    <h4>Forma de Pagamento</h4>
+    <label><input type="radio" name="pagamento" value="pix"> Pix</label>
+    <label><input type="radio" name="pagamento" value="cartao"> Cartão de Crédito</label>
+    <label><input type="radio" name="pagamento" value="boleto"> Boleto Bancário</label>
+  </div>
+
+  <div class="agendamento">
+    <h4>Agendar Reunião</h4>
+    <input type="date" id="data-reuniao">
+  </div>
+
+  <button id="finalizar-compra">Finalizar Compra</button>
+</div>
+
+<!-- POPUP DE COMPRA -->
+<div id="purchase-popup" class="purchase-popup">
+  <div class="purchase-popup-content">
+    <h3>Compra realizada com sucesso!</h3>
+    <p>Obrigado por adquirir nossos serviços. Em breve as informações de compra e agendamento de reunião serão enviadas para seu e-mail.</p>
+    <button id="popup-close">Fechar</button>
+  </div>
+</div>
 
 
   <!-- ===== CATÁLOGO DE SERVIÇOS ===== -->
 <section class="catalogo" id="servicos">
-  <h2>SERVIÇOS DISPONÍVEIS</h2>
-  <hr class="linha-catalogo">
-
+  
   <div class="catalogo-grid">
     <!-- Card 1 -->
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Dev Mobile.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 1800</p></div>
     </div>
 
     <div class="card-conteudo">
@@ -97,18 +98,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Dev Web.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 1000</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>DESENVOLVIMENTO DE WEBSITES</h3>
+        <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Site responsivo</li>
+        <li><i class="check-icon"></i> SEO otimizado</li>
+        <li><i class="check-icon"></i> Design moderno</li>
+        <li><i class="check-icon"></i> Integração rápida</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -116,21 +117,21 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="card-servico">
+    <div class="card-servico">      
     <div class="card-imagem">
         <img src="imagens/Img Dev Micro.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 1300</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>DESENVOLVIMENTO DE MICROSERVIÇOS/APIS</h3>
+        <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Alta performance</li>
+        <li><i class="check-icon"></i> APIs seguras</li>
+        <li><i class="check-icon"></i> Escalável</li>
+        <li><i class="check-icon"></i> Documentação clara</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -141,18 +142,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Dev Desk.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 900</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>DESENVOLVIMENTO DESKTOP</h3>
+        <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Multiplataforma</li>
+        <li><i class="check-icon"></i> Fácil instalação</li>
+        <li><i class="check-icon"></i> Uso offline</li>
+        <li><i class="check-icon"></i> Interface simples</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -163,18 +164,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Dev Ecom.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 2000</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>
+        <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Loja completa</li>
+        <li><i class="check-icon"></i> Pagamentos online</li>
+        <li><i class="check-icon"></i> Carrinho rápido</li>
+        <li><i class="check-icon"></i> Relatórios de vendas</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -185,18 +186,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Int Aut.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 1100</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
+        <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Plataformas unidas</li>
+        <li><i class="check-icon"></i> Tarefas automáticas</li>
+        <li><i class="check-icon"></i> APIs externas</li>
+        <li><i class="check-icon"></i> Produtividade alta</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -207,18 +208,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Dev Cloud.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 1400</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>DEVOPS & CLOUD</h3>
+        <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Deploy ágil</li>
+        <li><i class="check-icon"></i> Monitoramento contínuo</li>
+        <li><i class="check-icon"></i> Escalabilidade garantida</li>
+        <li><i class="check-icon"></i> Segurança reforçada</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -229,18 +230,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Sist Corp.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 2500</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
+        <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Gestão integrada</li>
+        <li><i class="check-icon"></i> Controle financeiro</li>
+        <li><i class="check-icon"></i> Organização de clientes</li>
+        <li><i class="check-icon"></i> Relatórios automáticos</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -251,18 +252,18 @@
     <div class="card-servico">
     <div class="card-imagem">
         <img src="imagens/Img Man Sup.png" alt="Desenvolvimento Mobile">
-        <div class="preco"><p>R$ 250</p></div>
+        <div class="preco"><p>R$ 600</p></div>
     </div>
 
     <div class="card-conteudo">
-        <h3>DESENVOLVIMENTO MOBILE</h3>
-        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+        <h3>MANUTENÇÃO E SUPORTE</h3>
+        <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
 
         <ul class="card-lista">
-        <li><i class="check-icon"></i> Android & iOS</li>
-        <li><i class="check-icon"></i> Push</li>
-        <li><i class="check-icon"></i> Layout intuitivo</li>
-        <li><i class="check-icon"></i> APIs integradas</li>
+        <li><i class="check-icon"></i> Atualizações constantes</li>
+        <li><i class="check-icon"></i> Correções de erros</li>
+        <li><i class="check-icon"></i> Backup periódico</li>
+        <li><i class="check-icon"></i> Atendimento rápido</li>
         </ul>
 
         <button class="btn-contratar">CONTRATAR</button>
@@ -293,6 +294,8 @@
     <img src="imagens/Logo_MRL.png" alt="Logo MRL">
   </div>
 </footer>
+
+<script src="scriptCatalog.js"></script>
 
 </body>
 </html>
