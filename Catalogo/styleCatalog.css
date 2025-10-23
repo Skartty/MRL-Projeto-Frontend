@@ -60,6 +60,41 @@ body {
   color: #333;
 }
 
+/* ===== BOTÕES DE FINALIDADE ===== */
+.finalidade-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+  margin-top: 5%; /* espaço abaixo do cabeçalho fixo */
+  flex-wrap: wrap;
+}
+
+.btn-finalidade {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 5px rgba(0,0,0,1.9);
+  color: #3a3a3a;
+}
+
+.btn-finalidade:hover {
+  background: #e65c00;
+  color: #fff;
+  border-color: #e65c00;
+}
+
+.btn-finalidade.active {
+  background: #e65c00;
+  color: #fff;
+  border-color: #e65c00;
+  box-shadow: 0 3px 10px rgba(131, 1, 29, 0.5);
+}
+
+
 /* ===== MENU DE FILTROS ===== */
 .filtro-opcoes {
   position: absolute;
@@ -111,7 +146,7 @@ body {
   box-shadow: -4px 0 10px rgba(0,0,0,0.2);
   padding: 20px;
   transition: right 0.4s ease;
-  z-index: 300;
+  z-index: 1000;
 }
 
 .carrinho-container.active {
@@ -266,7 +301,6 @@ body {
 .catalogo {
   padding: 60px 10%;
   text-align: center;
-  margin-top: 5%;
 }
 
 .catalogo-grid {
