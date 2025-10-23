@@ -17,10 +17,21 @@
     </a>
 
     <!-- 🔹 Ícone clicável que leva para a Home -->
-    <a href="../Home/index.html" class="btn-home">
-      <img src="imagens/Icon_Sair.png" alt="Voltar para Home">
+    <a href="#" id="btnLogout" class="btn-home">
+      <img src="imagens/Icon_Sair.png" alt="Sair da conta">
     </a>
   </header>
+
+  <script type="module">
+    import { verificarUsuarioLogado, logout } from "../../JS/Auth.js";
+    
+    verificarUsuarioLogado();
+
+    document.getElementById("btnLogout").addEventListener("click", (e) => {
+      e.preventDefault();
+      logout();
+    });
+  </script>
 
   <!-- ===== BANNER ===== -->
   <section class="banner">
@@ -43,25 +54,25 @@
       <form class="perfil-form" id="perfilForm">
         <div class="form-group">
           <label>Nome:</label>
-          <input type="text" value="Fulano da Silva" disabled>
+          <input type="text" id="perfilNome" disabled>
         </div>
         <div class="form-group">
           <label>Email:</label>
-          <input type="email" value="email@exemplo.com" disabled>
+          <input type="email" id="perfilEmail" disabled>
         </div>
         <div class="form-group">
           <label>CPF/CNPJ:</label>
-          <input type="text" value="123.456.789-00" disabled>
+          <input type="text" id="perfilCpfCnpj" disabled>
         </div>
         <div class="form-group">
           <label>Telefone:</label>
-          <input type="tel" value="(19) 99999-9999" disabled>
+          <input type="tel" id="perfilTelefone" disabled>
         </div>
         <div class="form-group senha-group">
           <label>Senha:</label>
           <div class="senha-wrapper">
-            <input type="password" value="senha123" disabled id="senha">
-            <button type="button" class="btn-toggle" onclick="toggleSenha()">
+            <input type="password" id="perfilSenha" disabled>
+            <button type="button" class="btn-toggle" id="btnToggleSenha">
               <img src="imagens/Img_Olho.png" alt="Mostrar senha">
             </button>
           </div>
@@ -69,6 +80,7 @@
 
         <div class="form-actions">
           <button type="button" class="btn-edit" id="btnEdit">Editar Informações</button>
+          <button type="button" class="btn-save" id="btnSave" style="display: none;">Salvar</button>
         </div>
       </form>
     </div>
@@ -223,6 +235,9 @@
   </footer>
 
 <script src="scriptPerfil.js"></script>
+<script type="module" src="../../JS/PerfilCliente.js"></script>
+<script type="module" src="../../JS/AtualizaCliente.js"></script>
+<script type="module" src="../../JS/BuscaCliente.js"></script>
 
 </body>
 </html>

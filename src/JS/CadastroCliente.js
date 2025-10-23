@@ -4,16 +4,21 @@ import {
   addDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { encryptPassword } from "./Criptografia.js";
+import { criarUsuarioAuthEmailSenha } from "./Auth.js";
 
 async function CadastrarCliente(cliente) {
+  
+  const userId = await criarUsuarioAuthEmailSenha(cliente.email, cliente.senha);
   const encryptPass = await encryptPassword(cliente.senha, "mrl-site-teste-secret");
 
   const clienteRef = await addDoc(collection(db, "Cliente"), {
+    idAuth: userId, 
     nome: cliente.nome,
     email: cliente.email,
     cpfCnpj: cliente.cpfCnpj,
     telefone: cliente.telefone,
     senhaHash: encryptPass,
+    admin: false,
   });
 
   return clienteRef.id;

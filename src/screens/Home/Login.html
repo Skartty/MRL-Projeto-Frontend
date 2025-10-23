@@ -15,22 +15,19 @@
       <!-- COLUNA FORMULÁRIO -->
       <div class="login-form">
         <h2>Login</h2>
-        <form>
-          <input type="email" placeholder="E-mail" required>
-          <input type="password" placeholder="Senha" required>
-          
-          <!-- ÍCONES DE LOGIN SOCIAL -->
-          <div class="social-login">
-            <img src="imagens/Icon_Facebook.png" alt="Login com Facebook">
-            <img src="imagens/Icon_Gmail.png" alt="Login com Gmail">
-            <img src="imagens/Icon_Insta.png" alt="Login com Instagram">
-          </div>
+        <form id="formLogin">
+        <input id="loginEmail" type="email" placeholder="E-mail" required>
+        <input id="loginSenha" type="password" placeholder="Senha" required>
+        
+        <div id="socialLogin" class="social-login">
+          <img src="Imagens/Icon_Facebook.png" alt="Facebook">
+        </div>
 
-          <button type="submit" class="btn-login">Entrar</button>
-        </form>
+        <button type="submit" class="btn-login">Entrar</button>
+      </form>
 
         <p class="link-cadastro">
-          Não tem uma conta? <a href="index.html#cadastro">Cadastre-se</a>
+          Não tem uma conta? <a href="/screens/Home/#cadastro">Cadastre-se</a>
         </p>
       </div>
 
@@ -41,6 +38,8 @@
       
     </div>
   </div>
+
+  <script type="module" src="../../JS/Auth.js"></script>
 
 </body>
 </html>
