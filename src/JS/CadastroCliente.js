@@ -1,7 +1,7 @@
 import { db } from "./firebase_config.js";
 import {
-  collection,
-  addDoc,
+  doc,
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { encryptPassword } from "./Criptografia.js";
 import { criarUsuarioAuthEmailSenha } from "./Auth.js";
@@ -11,17 +11,19 @@ async function CadastrarCliente(cliente) {
   const userId = await criarUsuarioAuthEmailSenha(cliente.email, cliente.senha);
   const encryptPass = await encryptPassword(cliente.senha, "mrl-site-teste-secret");
 
-  const clienteRef = await addDoc(collection(db, "Cliente"), {
-    idAuth: userId, 
+  const clienteRef = doc(db, "Cliente", userId)
+
+  await setDoc(clienteRef, {
+    idAuth: userId,
     nome: cliente.nome,
     email: cliente.email,
     cpfCnpj: cliente.cpfCnpj,
     telefone: cliente.telefone,
     senhaHash: encryptPass,
-    admin: false,
+    admin: false, 
   });
 
-  return clienteRef.id;
+  return userId;
 }
 
 function validarFormulario(cliente) {
@@ -37,7 +39,6 @@ function validarFormulario(cliente) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ Script de cadastro carregado!");
   const form = document.getElementById("formCadastro");
 
   if (!form) {

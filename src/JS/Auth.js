@@ -26,20 +26,20 @@ export function monitorarAuthRedirecionar() {
           const cliente = clienteSnap.data();
           const currentPath = window.location.pathname;
 
-          if (cliente.admin === true && !currentPath.includes("/screens/Admin/Admin.html")) {
+          if (cliente.admin === true && !currentPath.includes("/screens/Adm/")) {
             console.log("🔐 Redirecionando para área de Admin...");
-            window.location.href = "/screens/Admin/Admin.html";
-          } else if (!cliente.admin && !currentPath.includes("/screens/User/Perfil.html")) {
+            window.location.href = "/screens/Adm/";
+          } else if (!cliente.admin && !currentPath.includes("/screens/User/Perfil/index.html")) {
             console.log("👤 Redirecionando para área de Perfil...");
-            window.location.href = "/screens/User/Perfil.html";
+            window.location.href = "/screens/User/Perfil/";
           }
         } else {
           console.warn("⚠️ Cliente não encontrado. Redirecionando para Perfil.");
-          window.location.href = "/screens/User/Perfil.html";
+          window.location.href = "/screens/Home/";
         }
       } catch (error) {
         console.error("❌ Erro ao buscar dados do cliente:", error);
-        window.location.href = "/screens/User/Perfil.html";
+        window.location.href = "/screens/Home/";
       }
     } else {
       console.log("🚪 Nenhum usuário logado.");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         alert(`✅ Bem-vindo, ${user.displayName || user.email}!`);
 
-        window.location.href = "/screens/User/Perfil.html";
+        window.location.href = "/screens/User/Perfil/";
       } catch (error) {
         console.error("❌ Erro no login com Facebook:", error);
         alert("Erro ao fazer login com Facebook. Verifique o console.");
@@ -123,15 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (clienteSnap.exists()) {
           const cliente = clienteSnap.data();
           if (cliente.admin === true) {
-            console.log("🔐 Redirecionando para /screens/Admin/Admin.html...");
-            window.location.href = "/screens/Admin/Admin.html";
+            console.log("🔐 Redirecionando para /screens/Adm/Admin.html...");
+            window.location.href = "/screens/Adm/";
           } else {
-            console.log("👤 Redirecionando para /screens/User/Perfil.html...");
-            window.location.href = "/screens/User/Perfil.html";
+            console.log("👤 Redirecionando para /screens/User/Perfil...");
+            window.location.href = "/screens/User/Perfil/";
           }
         } else {
-          console.warn("⚠️ Cliente não encontrado. Redirecionando para /screens/User/Perfil.html...");
-          window.location.href = "/screens/User/Perfil.html";
+          console.warn("⚠️ Cliente não encontrado. Redirecionando para /screens/User/Perfil...");
+          window.location.href = "/screens/User/Perfil/";
         }
       } catch (error) {
         console.error("❌ Erro no login com e-mail/senha:", error);

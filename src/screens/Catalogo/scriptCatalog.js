@@ -201,7 +201,7 @@ if (searchBar) {
 const btnVoltar = document.querySelector(".btn-voltar");
 if (btnVoltar) {
   btnVoltar.addEventListener("click", () => {
-    window.location.href = "../user/user.html";
+    window.location.href = "/screens/User/index.html";
   });
 }
 
