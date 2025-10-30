@@ -249,6 +249,16 @@ body {
   cursor: pointer;
   margin-top: 3%;
 }
+.btn-save {
+  background: #e65c00;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3%;
+}
 .btn-edit:hover { background: #cc5200; }
 
 /* ===== MEUS CONTRATOS ===== */
