@@ -202,76 +202,117 @@ body {
 
 
 
-/* RODAPÉ */
+/* ===== RODAPÉ ===== */
 .footer {
-  background: #000; /* fundo preto */
-  color: #dddddd81; /* texto claro */
-  padding: 40px 10%;
+  background: #000;
+  color: #ddd;
+  padding: 60px 10% 20px 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 5%;
+  font-family: "Poppins", sans-serif;
+  margin-top: 8%;
 }
 
+/* Parte principal */
 .footer-content {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
   flex-wrap: wrap;
-  margin-left: 30%;
 }
 
-/* Info da empresa */
-.footer-info {
+/* Coluna esquerda */
+.footer-left {
+  flex: 1;
+  min-width: 450px;
+}
+
+.footer-section {
+  margin-bottom: 5%;
+}
+
+.footer-section h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+  color: #8f8e8e;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.footer-section a:hover {
+  color: #fc9652;
+}
+
+/* Coluna direita */
+.footer-right {
   flex: 1;
   min-width: 250px;
   text-align: left;
-  font-size: 14px;
-  line-height: 1.8;
+  margin-left: 35%;
 }
 
-/* Links sociais */
+.footer-right h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
 .footer-social {
-  flex: 1;
-  min-width: 200px;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .footer-social a {
   display: flex;
   align-items: center;
-  gap: 10px; /* espaço entre ícone e texto */
-  color: #dddddd81;
-  margin: 10px 0;
+  gap: 10px;
+  color: #8f8e8e;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .footer-social a:hover {
-  color: #e65100;
+  color: #fc9652;
 }
 
-.footer-social .social-icon {
-  width: 30px;
-  height: 30px;
+.footer-social img {
+  width: 32px;
+  height: 32px;
   object-fit: contain;
-  margin-right: 6px;
+  margin-bottom: 3%;
 }
 
-.footer-social .social2-icon {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-}
-
-/* Logo centralizada embaixo */
+/* Logo centralizada */
 .footer-logo {
-  margin-top: 30px;
   text-align: center;
 }
 
 .footer-logo img {
-  max-width: 180px;
+  width: 244px;
+  height: 111px;
 }
+
+/* Copyright */
+.footer-copy {
+  margin-top: 2%;
+  font-size: 15px;
+  color: #5e5e5e;
+  text-align: center;
+  width: 100%;
+  margin-left: 2%;
+}
+

@@ -17,6 +17,35 @@ function getCatalogContainer() {
   return document.querySelector(".catalogo-grid");
 }
 
+// ===== FILTRO POR FINALIDADE =====
+const botoesFinalidade = document.querySelectorAll('.btn-finalidade');
+const cards = document.querySelectorAll('.card-servico'); 
+
+botoesFinalidade.forEach(botao => {
+  botao.addEventListener('click', () => {
+    const finalidade = botao.getAttribute('data-finalidade');
+    const isActive = botao.classList.contains('active');
+
+    // desativa todos os botões
+    botoesFinalidade.forEach(b => b.classList.remove('active'));
+
+    if (isActive) {
+      // se clicar de novo, remove filtro e mostra todos
+      cards.forEach(card => card.style.display = 'block');
+    } else {
+      // ativa o botão clicado
+      botao.classList.add('active');
+
+      // mostra apenas os serviços da finalidade selecionada
+      cards.forEach(card => {
+        const tipo = card.getAttribute('data-finalidade');
+        card.style.display = (tipo === finalidade) ? 'block' : 'none';
+      });
+    }
+  });
+});
+
+
 // ===== CARRINHO =====
 const btnCarrinho = document.querySelector(".btn-carrinho");
 const carrinho = document.getElementById("carrinho");
@@ -201,7 +230,7 @@ if (searchBar) {
 const btnVoltar = document.querySelector(".btn-voltar");
 if (btnVoltar) {
   btnVoltar.addEventListener("click", () => {
-    window.location.href = "/screens/User/index.html";
+    window.location.href = "../user/user.html";
   });
 }
 
