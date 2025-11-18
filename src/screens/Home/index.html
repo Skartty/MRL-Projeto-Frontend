@@ -4,283 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MRL Desenvolvimento de Software</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous">
 
     <link rel="stylesheet" href="/screens/Home/styleHome.css">
+    <link rel="stylesheet" href="/screens/Acessibilidade/acessibilidade.css">
 </head>
 <body>
-  
-  <!-- ===== HEADER / MENU ===== -->
-  <header class="header">
-    <div class="logo">
-      <img src="/screens/Home/Imagens/Logo.png" alt="Imagem sobre MRL">
-    </div>
 
-    <nav class="nav">
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#cadastro">Cadastro</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <a href="/screens/Home/Login/index.html" class="btn-outline">Entrar</a>
-  </header>
-
-  <!-- ===== BANNER ===== -->
-  <section class="banner">
-    <img src="/screens/Home/Imagens/Fundo_Robo_Home.png" alt="Banner de fundo">
-    <div class="banner-content">
-      <h1>SOLUÇÕES DE SOFTWARE INOVADORAS</h1>
-      <p>
-        Criamos softwares de ponta que impulsionam negócios a crescer, otimizar e inovar. 
-        De aplicações personalizadas a sistemas integrados, nossa tecnologia transforma ideias em poderosas soluções digitais.
-      </p>
-      <a href="#cadastro" class="btn-cadastrese">Cadastre-se</a>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre" class="sobre">
-  <h2>SOBRE A <span>MRL</span></h2>
-  <div class="sobre-container">
-
-    <div class="sobre-item">
-      <p>
-        A MRL Desenvolvimento de Software e Tecnologias LTDA oferece soluções digitais inovadoras em desenvolvimento web, mobile, sistemas corporativos e integrações. Nosso foco é simplificar a transformação digital de empresas, com serviços ágeis, eficientes e personalizados.
-      </p>
-    </div>
-
-    <div class="sobre-item">
-      <h3>Nossa Especialização:</h3>
-      <ul>
-        <li>ARQUITETURA</li>
-        <li>DESENVOLVIMENTO</li>
-        <li>DESIGN</li>
-      </ul>
-    </div>
-
-    <div class="sobre-item">
-      <img src="/screens/Home/Imagens/Img_Sobre_Home.png" alt="Sobre a MRL" style="max-width:80%; border-radius:5px;">
-    </div>
-
-  </div>
-</section>
-
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="servicos">
-  <h2>NOSSOS SERVIÇOS</h2>
-
-  <div class="carousel">
-    <button class="prev">&#10094;</button>
-
-    <div class="carousel-track">
-      <!-- Card de cada serviço -->
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Mobile.png" alt="Serviço 1">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO MOBILE</h3>          
-        </div>
-      <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Web.png" alt="Serviço 2">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DE WEB SITES</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Micro.png" alt="Serviço 3">
-        <div class="servico-texto">
-          <h3>MICROSERVIÇOS & APIS</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Desk.png" alt="Serviço 4">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DESKTOP</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Ecom.png" alt="Serviço 5">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>          
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_Int.png" alt="Serviço 6">
-        <div class="servico-texto">
-          <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Dev_cloud.png" alt="Serviço 7">
-        <div class="servico-texto">
-          <h3>DEVOPS & CLOUD</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Sist_Corp.png" alt="Serviço 8">
-        <div class="servico-texto">
-          <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Home/Imagens/Img_Man_Sup.png" alt="Serviço 9">
-        <div class="servico-texto">
-          <h3>MANUTENÇÃO E SUPORTE</h3>
-          <!-- Descrição aparece no hover -->          
-        </div>
-        <div class="descricao-servico">
-          <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <button class="next">&#10095;</button>
-  </div>
-</section>
-
-  <!-- ===== CADASTRO ===== -->
-<section id="cadastro" class="cadastro">
-  <h2>Cadastre-se</h2>
-  <form id="formCadastro">
-    <div class="linha1">
-      <input type="text" name="nome" placeholder="Nome" required>
-    </div>
-    <div class="linha1">
-      <input type="email" name="email" placeholder="E-mail" required>
-    </div>
-    <div class="linha">
-      <input type="text" name="cpfCnpj" placeholder="CPF/CNPJ" required>
-      <input type="tel" name="telefone" placeholder="Telefone">
-    </div>
-    <div class="linha">
-      <input type="password" name="senha" placeholder="Senha" required>
-      <input type="password" name="confirmarSenha" placeholder="Confirme sua Senha" required>
-    </div>
-
-    <div class="social-login">
-       <div id="socialLogin" class="social-login">
-          <img src="/screens/Home/Imagens/Icon_Facebook.png" alt="Facebook">
-        </div>
-    </div>
-
-    <div class="botoes">
-      <button type="submit" class="btn-primary">Cadastrar</button>
-    </div>
-  </form>
-  <img src="/screens/Home/Imagens/Robo_Cadastro.png" alt="Robo mascote" class="cadastro-robo">
-</section>
-
-
-  <!-- ===== AVALIAÇÕES ===== -->
-  <section id="avaliacoes" class="avaliacoes">
-    <div class="avaliacao">
-      <h4>Leonardo Vasques</h4>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>“A MRL transformou nossa ideia em um sistema prático e funcional. Agilidade incrível!”</p>
-    </div>
-    <div class="avaliacao">
-      <h4>Carolina Mendes</h4>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>“Equipe comprometida e soluções sob medida. Superou nossas expectativas.”</p>
-    </div>
-    <div class="avaliacao">
-      <h4>Rafael Moretti</h4>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>“Serviço eficiente, comunicação clara e resultados de qualidade. Recomendo!”</p>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
-<footer id="contato" class="footer">
-    <div class="footer-content">
-      
-      <!-- Coluna esquerda -->
-      <div class="footer-left">
-        <div class="footer-section">
-          <h4>Empresa</h4>
-          <p>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</p>
-          <p>CNPJ 50.163.155/0001-17</p>
+    <!-- ===== HEADER / MENU ===== -->
+    <header class="header">
+        <div class="logo">
+            <img src="/screens/Home/Imagens/Logo.png" alt="Logo da empresa MRL">
         </div>
 
-        <div class="footer-section">
-          <h4>Fale Conosco</h4>
-          <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELDRIBEIRO@GMAIL.COM</a></p>
-          <p>Tel <a href="tel:+551997077633">19 9707-7633</a></p>
+        <button class="menu-toggle" aria-label="Abrir Menu">
+            &#9776;
+        </button>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#cadastro">Cadastro</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <a href="/screens/Home/Login/index.html" class="btn-outline">Entrar</a>
+    </header>
+
+    <!-- ===== BANNER ===== -->
+    <section class="banner">
+        <img src="/screens/Home/Imagens/Fundo_Robo_Home.png" alt="Banner de fundo com as caracteristicas de tecnologia">
+        <div class="banner-content">
+            <h1>SOLUÇÕES DE SOFTWARE INOVADORAS</h1>
+            <p>
+                Criamos softwares de ponta que impulsionam negócios a crescer, otimizar e inovar.
+                De aplicações personalizadas a sistemas integrados, nossa tecnologia transforma ideias
+                em poderosas soluções digitais.
+            </p>
+            <a href="#cadastro" class="btn-cadastrese">Cadastre-se</a>
         </div>
-      </div>
+    </section>
 
-      <!-- Coluna direita -->
-      <div class="footer-right">
-        <h4>Redes Sociais</h4>
-        <div class="footer-social">
-          <a href="#"><img src="/screens/Home/Imagens/Icon_Git.png" alt="GitHub"> GitHub</a>
-          <a href="#"><img src="/screens/Home/Imagens/Icon_Insta2.png" alt="Instagram"> Instagram</a>
-          <a href="#"><img src="/screens/Home/Imagens/Icon_Link.png" alt="LinkedIn"> Linkedin</a>
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <h2>SOBRE A <span>MRL</span></h2>
+
+        <div class="sobre-container">
+            <div class="sobre-item">
+                <p>
+                    A MRL Desenvolvimento de Software e Tecnologias LTDA oferece soluções digitais inovadoras em
+                    desenvolvimento web, mobile, sistemas corporativos e integrações. Nosso foco é simplificar a
+                    transformação digital de empresas, com serviços ágeis, eficientes e personalizados.
+                </p>
+            </div>
+
+            <div class="sobre-item">
+                <h3>Nossa Especialização:</h3>
+                <ul>
+                    <li>ARQUITETURA</li>
+                    <li>DESENVOLVIMENTO</li>
+                    <li>DESIGN</li>
+                </ul>
+            </div>
+
+            <div class="sobre-item">
+                <img src="/screens/Home/Imagens/Img_Sobre_Home.png"
+                     alt="Imagem ilustrativa com o tema de tecnologia"
+                     style="max-width:80%; border-radius:5px;">
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Logo central -->
-    <div class="footer-logo">
-      <img src="/screens/Home/Imagens/Logo_MRL.png" alt="Logo MRL">
-    </div>
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="servicos">
+        <h2>NOSSOS SERVIÇOS</h2>
 
-    <!-- Copyright -->
-    <div class="footer-copy">
-      © Copyright 2025 - Todos os direitos reservados
-    </div>
-  </footer>
+        <div class="carousel">
+            <button class="prev">&#10094;</button>
 
-<script type="module" src="../../JS/CadastroCliente.js"></script>
-<script src="/screens/Home/scriptHome.js"></script>
+            <div class="carousel-track">
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Mobile.png" alt="Serviço 1 - Desenvolvimento Mobile">
+                    <div class="servico-texto">
+                        <h3>DESENVOLVIMENTO MOBILE</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Web.png" alt="Serviço 2 - Desenvolvimento Web">
+                    <div class="servico-texto">
+                        <h3>DESENVOLVIMENTO DE WEB SITES</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Micro.png" alt="Serviço 3 - Microserviços & APIs">
+                    <div class="servico-texto">
+                        <h3>MICROSERVIÇOS & APIS</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Desk.png" alt="Serviço 4 - Desenvolvimento Desktop">
+                    <div class="servico-texto">
+                        <h3>DESENVOLVIMENTO DESKTOP</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Ecom.png" alt="Serviço 5 - Desenvolvimento de E-commerce">
+                    <div class="servico-texto">
+                        <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_Int.png" alt="Serviço 6 - Integrações e Automação">
+                    <div class="servico-texto">
+                        <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Dev_cloud.png" alt="Serviço 7 - DevOps & Cloud">
+                    <div class="servico-texto">
+                        <h3>DEVOPS & CLOUD</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Sist_Corp.png" alt="Serviço 8 - Sistemas Corporativos">
+                    <div class="servico-texto">
+                        <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
+                    </div>
+                </div>
+
+                <div class="servico-card">
+                    <img src="/screens/Home/Imagens/Img_Man_Sup.png" alt="Serviço 9 - Manutenção e Suporte">
+                    <div class="servico-texto">
+                        <h3>MANUTENÇÃO E SUPORTE</h3>
+                    </div>
+                    <div class="descricao-servico">
+                        <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="next">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- ===== CADASTRO ===== -->
+    <section id="cadastro" class="cadastro">
+        <h2>Cadastre-se</h2>
+
+        <form id="formCadastro">
+            <div class="linha1">
+                <input type="text" name="nome" placeholder="Nome" required>
+            </div>
+
+            <div class="linha1">
+                <input type="email" name="email" placeholder="E-mail" required>
+            </div>
+
+            <div class="linha">
+                <input type="text" name="cpfCnpj" placeholder="CPF/CNPJ" required>
+                <input type="tel" name="telefone" placeholder="Telefone">
+            </div>
+
+            <div class="linha">
+                <input type="password" name="senha" placeholder="Senha" required>
+                <input type="password" name="confirmarSenha" placeholder="Confirme sua Senha" required>
+            </div>
+
+            <div class="social-login">
+                <div id="socialLogin" class="social-login">
+                    <img src="/screens/Home/Imagens/Icon_Facebook.png" alt="Login com o Facebook">
+                </div>
+            </div>
+
+            <div class="botoes">
+                <button type="submit" class="btn-primary">Cadastrar</button>
+            </div>
+        </form>
+
+        <img src="/screens/Home/Imagens/Robo_Cadastro.png" alt="Robo mascote" class="cadastro-robo">
+    </section>
+
+    <!-- ===== AVALIAÇÕES ===== -->
+    <section id="avaliacoes" class="avaliacoes">
+        <div class="avaliacao">
+            <h4>Leonardo Vasques</h4>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>“A MRL transformou nossa ideia em um sistema prático e funcional. Agilidade incrível!”</p>
+        </div>
+
+        <div class="avaliacao">
+            <h4>Carolina Mendes</h4>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>“Equipe comprometida e soluções sob medida. Superou nossas expectativas.”</p>
+        </div>
+
+        <div class="avaliacao">
+            <h4>Rafael Moretti</h4>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>“Serviço eficiente, comunicação clara e resultados de qualidade. Recomendo!”</p>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer id="contato" class="footer">
+        <div class="footer-content">
+
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <p>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</p>
+                    <p>CNPJ 50.163.155/0001-17</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Fale Conosco</h4>
+                    <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELDRIBEIRO@GMAIL.COM</a></p>
+                    <p>Tel <a href="tel:+551997077633">19 9707-7633</a></p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h4>Redes Sociais</h4>
+                <div class="footer-social">
+                    <a href="https://github.com/MiraelRibeiro" target="_blank" rel="noopener noreferrer">
+                        <img src="/screens/User/Imagens/Icon_Git.png" alt="Link contato GitHub"> GitHub
+                    </a>
+
+                    <a href="https://www.instagram.com/miraelribeiro/" target="_blank" rel="noopener noreferrer">
+                        <img src="/screens/User/Imagens/Icon_Insta.png" alt="Link contato Instagram"> Instagram
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/mirael-ribeiro-16437618b/" target="_blank" rel="noopener noreferrer">
+                        <img src="/screens/User/Imagens/Icon_Link.png" alt="Link contato LinkedIn"> Linkedin
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-logo">
+            <img src="/screens/Home/Imagens/Logo_MRL.png" alt="Logo da empresa MRL">
+        </div>
+
+        <div class="footer-copy">
+            © Copyright 2025 - Todos os direitos reservados
+        </div>
+    </footer>
+
+    <script src="/screens/Acessibilidade/acessibilidade.js"></script>
+    <script type="module" src="../../JS/CadastroCliente.js"></script>
+    <script src="/screens/Home/scriptHome.js"></script>
 
 </body>
 </html>

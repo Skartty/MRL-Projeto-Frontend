@@ -1,0 +1,60 @@
+/* Botão flutuante principal */
+#acessibilidade-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0;
+}
+
+#acessibilidade-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 1.4);
+}
+
+/* Imagem dentro do botão */
+#acessibilidade-btn img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Menu de opções */
+#acessibilidade-menu {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+}
+
+/* Botões dentro do menu */
+#acessibilidade-menu button {
+  background-color: #000000;
+  color: #fff;
+  border: rgb(0, 0, 0);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+#acessibilidade-menu button:hover {
+  background-color: #aa4400;
+}

@@ -150,3 +150,42 @@ filtroPag.addEventListener("change", () => {
   lista.innerHTML = "";
   cards.forEach(c => lista.appendChild(c));
 });
+
+// =====================
+// 🔹 POP-UP DE SAIR DA CONTA
+// =====================
+document.addEventListener("DOMContentLoaded", () => {
+  // Cria o pop-up
+  async function criarPopup(mensagem, duracao = 0) {
+    const popup = document.createElement("div");
+    popup.className = "popup-overlay";
+    popup.innerHTML = `
+      <div class="popup-box">
+        <p>${mensagem}</p>
+        <button id="popup-ok">OK</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    const botaoOk = popup.querySelector("#popup-ok");
+    botaoOk.addEventListener("click", () => popup.remove());
+    await signOut(auth);
+
+    if (duracao > 0) {
+      setTimeout(() => popup.remove(), duracao);
+    }
+  }
+  
+  const btnSair = document.querySelector(".btn-home");
+  if (btnSair) {
+    btnSair.addEventListener("click", (e) => {
+      e.preventDefault();
+      criarPopup("Você saiu da conta com sucesso!");
+
+      const popup = document.querySelector(".popup-overlay");
+      popup.querySelector("#popup-ok").addEventListener("click", () => {
+        window.location.href = "/screens/Home/index.html";
+      });
+    });
+  }
+});

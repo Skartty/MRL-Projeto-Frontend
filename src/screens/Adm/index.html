@@ -4,22 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - MRL</title>
+
   <link rel="stylesheet" href="/screens/Adm/styleAdm.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/screens/Acessibilidade/acessibilidade.css">
 </head>
 <body>
 
   <!-- ===== HEADER / MENU ===== --> 
   <header class="header">
     <div class="logo">
-      <img src="/screens/Adm/Imagens/Logo.png" alt="Imagem sobre MRL">
+      <img src="/screens/Adm/Imagens/Logo.png" alt="Logo da empresa MRL">
     </div>
 
     <nav class="nav">
       <ul>
         <li><a href="/screens/Adm/Menu.html#clientes">Clientes</a></li>
         <li><a href="/screens/Adm/Menu.html#contratos">Contratos</a></li>
-        <li><a href="/screens/Adm/Menu.html#pagamentos">pagamentos</a></li>
+        <li><a href="/screens/Adm/Menu.html#pagamentos">Pagamentos</a></li>
         <li><a href="/screens/Adm/Menu.html#avaliacoes">Avaliações</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -27,13 +29,14 @@
 
     <!-- 🔹 Ícone clicável que leva para a Home -->
     <a href="/screens/Home/index.html" class="btn-home">
-      <img src="/screens/Adm/Imagens/Icon_Sair.png" alt="Voltar para Home">
+      <img src="/screens/Adm/Imagens/Icon_Sair.png" alt="Botão de sair e voltar para Home">
     </a>
   </header>
 
   <!-- ===== BANNER ===== -->
   <section class="banner">
-    <img src="/screens/Adm/Imagens/Fundo_User.png" alt="Banner de fundo">
+    <img src="/screens/Adm/Imagens/Fundo_User.png" alt="Banner de fundo com características de tecnologia">
+
     <div class="banner-content">
       <h1>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</h1>
     </div>
@@ -42,157 +45,179 @@
   <!-- ===== MENU RÁPIDO ===== -->
   <section class="menu-rapido">
     <h2>MENU</h2>
+
     <div class="menu-grid">
-      <a href= "/screens/Adm/Menu.html#clientes" class="menu-item">
-        <img src="/screens/Adm/Imagens/Icon_Perfil.png" alt="Clientes">
+      <a href="/screens/Adm/Menu.html#clientes" class="menu-item">
+        <img src="/screens/Adm/Imagens/Icon_Perfil.png" alt="Aba de Clientes">
         <p>CLIENTES</p>
       </a>
 
       <a href="/screens/Adm/Menu.html#contratos" class="menu-item">
-        <img src="/screens/Adm/Imagens/Icon_Contratos.png" alt="Contratos">
+        <img src="/screens/Adm/Imagens/Icon_Contratos.png" alt="Aba de Contratos">
         <p>CONTRATOS</p>
       </a>
 
       <a href="/screens/Adm/Menu.html#pagamentos" class="menu-item">
-        <img src="/screens/Adm/Imagens/Icon_Pagamentos.png" alt="Pagamentos">
+        <img src="/screens/Adm/Imagens/Icon_Pagamentos.png" alt="Aba de Pagamentos">
         <p>PAGAMENTOS</p>
       </a>
 
       <a href="/screens/Adm/Menu.html#avaliacoes" class="menu-item">
-        <img src="/screens/Adm/Imagens/Icon_Avaliacoes.png" alt="Avaliações">
+        <img src="/screens/Adm/Imagens/Icon_Avaliacoes.png" alt="Aba de Avaliações">
         <p>AVALIAÇÕES</p>
       </a>
-      
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
+  <!-- ===== SERVIÇOS ===== -->
   <section id="servicos" class="servicos">
-  <h2>NOSSOS SERVIÇOS</h2>
+    <h2>NOSSOS SERVIÇOS</h2>
 
-  <div class="carousel">
-    <button class="prev">&#10094;</button>
+    <div class="carousel">
 
-    <div class="carousel-track">
-      <!-- Card de cada serviço -->
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Mobile.png" alt="Serviço 1">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO MOBILE</h3>          
+      <button class="prev">&#10094;</button>
+
+      <div class="carousel-track">
+
+        <!-- Card 1 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Mobile.png" alt="Serviço 1 - Desenvolvimento Mobile">
+
+          <div class="servico-texto">
+            <h3>DESENVOLVIMENTO MOBILE</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+          </div>
         </div>
-      <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Aplicativos Android e iOS com design intuitivo e recursos que conectam você aos seus clientes.</p>
+
+        <!-- Card 2 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Web.png" alt="Serviço 2 - Desenvolvimento Web Sites">
+
+          <div class="servico-texto">
+            <h3>DESENVOLVIMENTO DE WEB SITES</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
+          </div>
         </div>
+
+        <!-- Card 3 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Micro.png" alt="Serviço 3 - Microserviços e APIs">
+
+          <div class="servico-texto">
+            <h3>MICROSERVIÇOS & APIS</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Desk.png" alt="Serviço 4 - Desenvolvimento Desktop">
+
+          <div class="servico-texto">
+            <h3>DESENVOLVIMENTO DESKTOP</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Ecom.png" alt="Serviço 5 - Desenvolvimento de E-commerce">
+
+          <div class="servico-texto">
+            <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_Int.png" alt="Serviço 6 - Integrações e Automação">
+
+          <div class="servico-texto">
+            <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Dev_cloud.png" alt="Serviço 7 - DevOps e Cloud">
+
+          <div class="servico-texto">
+            <h3>DEVOPS & CLOUD</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Sist_Corp.png" alt="Serviço 8 - Sistemas Corporativos">
+
+          <div class="servico-texto">
+            <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="servico-card">
+          <img src="/screens/Adm/Imagens/Img_Man_Sup.png" alt="Serviço 9 - Manutenção e Suporte">
+
+          <div class="servico-texto">
+            <h3>MANUTENÇÃO E SUPORTE</h3>
+          </div>
+
+          <div class="descricao-servico">
+            <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Web.png" alt="Serviço 2">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DE WEB SITES</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Criação de sites modernos, rápidos e responsivos para fortalecer a presença online da sua empresa.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Micro.png" alt="Serviço 3">
-        <div class="servico-texto">
-          <h3>MICROSERVIÇOS & APIS</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Soluções escaláveis e seguras que permitem integrar sistemas e ampliar funcionalidades com facilidade.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Desk.png" alt="Serviço 4">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DESKTOP</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Softwares para Windows, Linux ou Mac, criados sob medida para otimizar processos internos.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Ecom.png" alt="Serviço 5">
-        <div class="servico-texto">
-          <h3>DESENVOLVIMENTO DE E-COMMERCE</h3>          
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Lojas virtuais completas, seguras e integradas a meios de pagamento para impulsionar suas vendas.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_Int.png" alt="Serviço 6">
-        <div class="servico-texto">
-          <h3>INTEGRAÇÕES E AUTOMAÇÃO</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Automatize tarefas e unifique plataformas para ganhar tempo e aumentar a produtividade.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Dev_cloud.png" alt="Serviço 7">
-        <div class="servico-texto">
-          <h3>DEVOPS & CLOUD</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Infraestrutura em nuvem com deploy ágil, monitoramento constante e práticas seguras de DevOps.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Sist_Corp.png" alt="Serviço 8">
-        <div class="servico-texto">
-          <h3>SISTEMAS CORPORATIVOS (ERP/CRM)</h3>
-        </div>
-        <!-- Descrição aparece no hover -->
-        <div class="descricao-servico">
-          <p>Ferramentas que centralizam gestão de clientes, finanças e estoque em um único sistema eficiente.</p>
-        </div>
-      </div>
-
-      <div class="servico-card">
-        <img src="/screens/Adm/Imagens/Img_Man_Sup.png" alt="Serviço 9">
-        <div class="servico-texto">
-          <h3>MANUTENÇÃO E SUPORTE</h3>
-          <!-- Descrição aparece no hover -->          
-        </div>
-        <div class="descricao-servico">
-          <p>Serviço contínuo de suporte técnico, correções e atualizações para manter seu sistema estável.</p>
-        </div>
-      </div>
-
+      <button class="next">&#10095;</button>
     </div>
 
-    <button class="next">&#10095;</button>
+    <div class="btn-catalogo">
+      <a href="/screens/Adm/Menu.html#catalogo">Editar Catálogo</a>
     </div>
-
-      <div class="btn-catalogo">
-          <a href="/screens/Adm/Menu.html#catalogo">Editar Catálogo</a>
-      </div>
 
   </section>
 
-
+  <!-- ===== RODAPÉ ===== -->
   <footer id="contato" class="footer">
+
     <div class="footer-btn">
       <button>Editar informações</button>
     </div>
 
     <div class="footer-content">
+
       <div class="footer-left">
+
         <div class="footer-section">
           <h4>Empresa</h4>
           <p>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</p>
@@ -204,30 +229,43 @@
           <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELDRIBEIRO@GMAIL.COM</a></p>
           <p>Tel <a href="tel:+551997077633">19 9707-7633</a></p>
         </div>
+
       </div>
 
+      <!-- Redes Sociais -->
       <div class="footer-right">
         <h4>Redes Sociais</h4>
+
         <div class="footer-social">
-          <a href="#"><img src="/screens/Adm/Imagens/Icon_Git.png" alt="GitHub"> GitHub</a>
-          <a href="#"><img src="/screens/Adm/Imagens/Icon_Insta.png" alt="Instagram"> Instagram</a>
-          <a href="#"><img src="/screens/Adm/Imagens/Icon_Link.png" alt="LinkedIn"> Linkedin</a>
+          <a href="https://github.com/MiraelRibeiro" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Git.png" alt="Link contato GitHub">
+            GitHub
+          </a>
+
+          <a href="https://www.instagram.com/miraelribeiro/" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Insta.png" alt="Link contato Instagram">
+            Instagram
+          </a>
+
+          <a href="https://www.linkedin.com/in/mirael-ribeiro-16437618b/" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Link.png" alt="Link contato LinkedIn">
+            Linkedin
+          </a>
         </div>
       </div>
     </div>
 
     <div class="footer-logo">
-      <img src="/screens/Adm/Imagens/Logo_MRL.png" alt="Logo MRL">
+      <img src="/screens/Adm/Imagens/Logo_MRL.png" alt="Logo da empresa MRL">
     </div>
 
-    <!-- Copyright -->
     <div class="footer-copy">
       © Copyright 2025 - Todos os direitos reservados
     </div>
   </footer>
 
+  <script src="/screens/Acessibilidade/acessibilidade.js"></script>
   <script src="/screens/Adm/scriptAdm.js"></script>
 
 </body>
 </html>
-

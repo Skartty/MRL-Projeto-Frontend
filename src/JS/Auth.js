@@ -6,13 +6,97 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { db } from "./firebase_config.js";
-import {
-  doc,
-  setDoc,
-  getDoc,
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ==============================
+   🧩 FUNÇÃO POPUP DE AVISO BETA (com animação)
+   ============================== */
+function mostrarAvisoBeta(callback) {
+  // cria o overlay
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.background = "rgba(0,0,0,0.7)";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.zIndex = "9999";
+  overlay.style.opacity = "0";
+  overlay.style.transition = "opacity 0.5s ease"; // 🔹 Fade-in
+
+  // cria o popup
+  const popup = document.createElement("div");
+  popup.style.background = "#fff";
+  popup.style.color = "#000";
+  popup.style.borderRadius = "12px";
+  popup.style.padding = "30px";
+  popup.style.maxWidth = "420px";
+  popup.style.textAlign = "center";
+  popup.style.boxShadow = "0 4px 25px rgba(0,0,0,0.4)";
+  popup.style.fontFamily = "Montserrat, sans-serif";
+  popup.style.transform = "scale(0.9)";
+  popup.style.transition = "transform 0.3s ease, opacity 0.3s ease"; // 🔹 animação de entrada
+  popup.style.opacity = "0";
+
+  popup.innerHTML = `
+    <h2 style="margin-bottom: 10px; color: #e65c00;">🚧 Site em Desenvolvimento</h2>
+    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+      Esta é uma <strong>versão beta</strong> do sistema.<br>
+      Alguns botões, menus e interações ainda estão sendo implementados.<br>
+      Os elementos estáticos são apenas representações visuais do design final.
+    </p>
+    <button id="btnAvisoOk" style="
+      background: #e65c00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    ">OK</button>
+  `;
+
+  overlay.appendChild(popup);
+  document.body.appendChild(overlay);
+
+  // força reflow para iniciar transição
+  requestAnimationFrame(() => {
+    overlay.style.opacity = "1";
+    popup.style.opacity = "1";
+    popup.style.transform = "scale(1)";
+  });
+
+  // efeito de hover no botão
+  const btn = popup.querySelector("#btnAvisoOk");
+  btn.addEventListener("mouseenter", () => {
+    btn.style.transform = "scale(1.05)";
+    btn.style.background = "#ff7b22";
+  });
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "scale(1)";
+    btn.style.background = "#e65c00";
+  });
+
+  // botão OK fecha o popup e chama callback (com fade-out)
+  btn.addEventListener("click", () => {
+    popup.style.opacity = "0";
+    popup.style.transform = "scale(0.9)";
+    overlay.style.opacity = "0";
+    setTimeout(() => {
+      overlay.remove();
+      if (callback) callback();
+    }, 400); // espera animação terminar
+  });
+}
 
 
+/* ==============================
+   🔐 MONITORAMENTO DE LOGIN
+   ============================== */
 export function monitorarAuthRedirecionar() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -28,15 +112,25 @@ export function monitorarAuthRedirecionar() {
 
           if (cliente.admin === true && !currentPath.includes("/screens/Adm/")) {
             console.log("🔐 Redirecionando para área de Admin...");
-            window.location.href = "/screens/Adm/";
-          } else if (!cliente.admin && !currentPath.includes("/screens/User/Perfil/index.html")) {
+
+            // Exibe o popup ANTES do redirecionamento
+            mostrarAvisoBeta(() => {
+              window.location.href = "/screens/Adm/";
+            });
+
+          } else if (!cliente.admin && !currentPath.includes("/screens/User/")) {
             console.log("👤 Redirecionando para área de Perfil...");
-            window.location.href = "/screens/User/Perfil/";
+
+            mostrarAvisoBeta(() => {
+              window.location.href = "/screens/User/";
+            });
           }
+
         } else {
           console.warn("⚠️ Cliente não encontrado. Redirecionando para Perfil.");
           window.location.href = "/screens/Home/";
         }
+
       } catch (error) {
         console.error("❌ Erro ao buscar dados do cliente:", error);
         window.location.href = "/screens/Home/";
@@ -59,7 +153,7 @@ export function verificarUsuarioLogado() {
 export async function logout() {
   try {
     await signOut(auth);
-    alert("Você saiu da conta!");
+    /*alert("Você saiu da conta!");*/
     window.location.href = "/screens/Home/";
   } catch (error) {
     console.error("❌ Erro ao sair:", error);
@@ -67,7 +161,9 @@ export async function logout() {
   }
 }
 
-
+/* ==============================
+   📱 LOGIN FACEBOOK / EMAIL
+   ============================== */
 document.addEventListener("DOMContentLoaded", () => {
   const btnFacebook = document.getElementById("socialLogin");
   if (btnFacebook) {
@@ -89,7 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         alert(`✅ Bem-vindo, ${user.displayName || user.email}!`);
 
-        window.location.href = "/screens/User/Perfil/";
+        // Exibe popup antes de redirecionar
+        mostrarAvisoBeta(() => {
+          window.location.href = "/screens/User/";
+        });
+
       } catch (error) {
         console.error("❌ Erro no login com Facebook:", error);
         alert("Erro ao fazer login com Facebook. Verifique o console.");
@@ -97,8 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-  // ✅ LOGIN POR E-MAIL E SENHA
   const formLogin = document.getElementById("formLogin");
   if (formLogin) {
     formLogin.addEventListener("submit", async (e) => {
@@ -123,16 +221,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if (clienteSnap.exists()) {
           const cliente = clienteSnap.data();
           if (cliente.admin === true) {
-            console.log("🔐 Redirecionando para /screens/Adm/Admin.html...");
-            window.location.href = "/screens/Adm/";
+            mostrarAvisoBeta(() => {
+              window.location.href = "/screens/Adm/";
+            });
           } else {
-            console.log("👤 Redirecionando para /screens/User/Perfil...");
-            window.location.href = "/screens/User/Perfil/";
+            mostrarAvisoBeta(() => {
+              window.location.href = "/screens/User/";
+            });
           }
         } else {
-          console.warn("⚠️ Cliente não encontrado. Redirecionando para /screens/User/Perfil...");
-          window.location.href = "/screens/User/Perfil/";
+          mostrarAvisoBeta(() => {
+            window.location.href = "/screens/User/";
+          });
         }
+
       } catch (error) {
         console.error("❌ Erro no login com e-mail/senha:", error);
         alert("E-mail ou senha incorretos.");
@@ -141,10 +243,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
-
-// ✅ Cadastro de usuário por e-mail e senha (chamado no CadastroCliente.js)
+/* ==============================
+   ✳️ CADASTRO EMAIL/SENHA
+   ============================== */
 export async function criarUsuarioAuthEmailSenha(email, senha) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
@@ -162,6 +263,11 @@ export async function loginUsuarioEmail(email, senha) {
     const userCredential = await signInWithEmailAndPassword(auth, email, senha);
     const user = userCredential.user;
     alert(`✅ Bem-vindo, ${user.email}!`);
+
+    mostrarAvisoBeta(() => {
+      window.location.href = "/screens/User/";
+    });
+
     return user;
   } catch (error) {
     console.error("❌ Erro no login com e-mail/senha:", error);

@@ -450,6 +450,130 @@ body {
   margin-top: 10px;
 }
 
+/* ===== MINHAS AVALIAÇÕES ===== */
+
+/* Estilo para a lista de avaliações (se houver mais de uma) */
+.avaliacoes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os cards */
+    margin-top: 15px; /* Adiciona um pequeno espaço após o h3 */
+}
+
+/* Card de Avaliação (Baseado em contrato-card/pagamento-card) */
+.avaliacao-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Não precisa de transição de hover/cursor pointer se for só leitura */
+}
+
+/* Header para Avaliação (para agrupar título/estrelas) */
+.avaliacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.avaliacao-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Estilo para as estrelas */
+.avaliacao-estrelas {
+    font-size: 18px;
+    color: #ffcc00; /* Amarelo para as estrelas */
+    font-weight: bold;
+}
+
+/* Estilo para o corpo da avaliação */
+.avaliacao-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.avaliacao-card p strong {
+    color: #333;
+}
+
+/* Estilo para a citação (o comentário em si) */
+.avaliacao-comentario {
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 3px solid #e65c00; /* Linha laranja para destaque */
+    font-style: italic;
+    color: #333;
+}
+
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
 
 /* ===== RODAPÉ ===== */
 .footer {
@@ -565,3 +689,259 @@ body {
   margin-left: 2%;
 }
 
+/* ====================== */
+/* RESPONSIVIDADE */
+/* ====================== */
+
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* HEADER */
+    .header {
+        padding: 15px 5%;
+    }
+    .btn-User img {
+        width: 35px;
+        height: 35px;
+    }
+    .btn-home img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* PERFIL CONTAINER */
+    .perfil-container {
+        width: 90%; /* Aumenta a largura para ocupar mais espaço */
+        padding: 20px;
+    }
+
+    /* ABAS */
+    .tabs {
+        justify-content: space-around; /* Distribui as abas melhor */
+        gap: 5px;
+    }
+    .tab-button {
+        font-size: 15px;
+        padding: 8px 10px;
+    }
+
+    /* MEUS CONTRATOS / PAGAMENTOS */
+
+    /* Filtro */
+    .filtro-contratos,
+    .filtro-pagamentos {
+        justify-content: flex-start; /* Move o filtro para a esquerda */
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Contratos/Pagamentos Header (Ajuste do Grid) */
+    .contrato-header,
+    .pagamento-header {
+        grid-template-columns: 2fr 1fr auto; /* Título, Info Principal, Expandir (auto) */
+    }
+
+    /* Oculta informações menos críticas na visualização inicial (Mobile) */
+    .contrato-header .data,
+    .pagamento-header .data-contrato {
+        display: none; /* Oculta a data do contrato/cadastro */
+    }
+    
+    .data-vencimento {
+         margin-right: 0; /* Remove margem extra */
+    }
+
+    .contrato-header h3,
+    .pagamento-header h3 {
+        grid-column: 1 / span 2; /* Faz o título ocupar mais espaço */
+    }
+    
+    .status {
+        text-align: right;
+    }
+    
+    .expand {
+        justify-self: end; /* ⬅️ GARANTE ALINHAMENTO À EXTREMA DIREITA DA ÚLTIMA COLUNA */
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    /* HEADER */
+    .header {
+        padding: 10px 3%;
+    }
+    .btn-User img {
+        width: 30px;
+        height: 30px;
+    }
+    .btn-home img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* PERFIL CONTAINER */
+    .perfil-container {
+        width: 95%; /* Ocupa a largura máxima */
+        padding: 15px;
+    }
+
+    /* ABAS */
+    .tabs {
+        flex-wrap: wrap; /* Permite que as abas quebrem a linha */
+        gap: 10px;
+    }
+    .tab-button {
+        flex-grow: 1; /* Faz as abas ocuparem o espaço disponível */
+        font-size: 14px;
+        padding: 8px 5px;
+    }
+
+    /* PERFIL FORM */
+    .form-actions {
+        text-align: center; /* Centraliza botões */
+    }
+    .btn-edit, .btn-save {
+        width: 100%; /* Botões de ação ocupam toda a largura */
+        padding: 12px;
+        margin-top: 10px;
+    }
+    
+    /* MEUS CONTRATOS / PAGAMENTOS */
+    
+    /* Contratos/Pagamentos Header (Empilha em 2 linhas - CORREÇÃO) */
+    .contrato-header,
+    .pagamento-header {
+        /* Define 3 colunas: Título/Info (mais espaço), Status/Vencimento (fixo), Ícone (fixo e pequeno) */
+        grid-template-columns: 1fr auto min-content; /* 1fr (ocupa o resto), auto (largura do conteúdo), min-content (pequeno para o ícone) */
+        gap: 5px;
+    }
+
+    .contrato-header h3,
+    .pagamento-header h3 {
+        grid-column: 1 / 2; /* Ocupa a primeira coluna */
+        font-size: 15px;
+        align-self: flex-start;
+    }
+    
+    .status {
+        grid-column: 2 / 3; /* Status na segunda coluna */
+        text-align: right;
+        font-size: 14px;
+        align-self: flex-start;
+    }
+
+    .data-vencimento {
+        grid-column: 2 / 3; /* Vencimento na segunda coluna */
+        text-align: right;
+        font-size: 14px;
+    }
+    
+    /* 💥 NOVO TRATAMENTO PARA O ÍCONE: Coluna 3, abrangendo 2 linhas */
+    .contrato-header .expand,
+    .pagamento-header .expand {
+        grid-column: 3 / 4; /* ⬅️ Coluna 3, na extrema direita */
+        grid-row: 1 / 3; /* Abastece 2 linhas (Título + Data) */
+        align-self: center;
+        justify-self: end;
+    }
+    
+    /* Reposiciona a Data do Contrato para a linha de baixo */
+    .data {
+        display: block; 
+        grid-column: 1 / 3; /* Ocupa as duas primeiras colunas na linha de baixo */
+        text-align: left;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    
+    /* Ajuste Pagamentos para empilhar */
+    .data-vencimento {
+        grid-column: 2 / 3;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .pagamento-header .expand {
+        grid-row: 1 / 3; /* Faz o ícone expandir por duas linhas */
+        align-self: center;
+        justify-self: end; /* ⬅️ GARANTE ALINHAMENTO À EXTREMA DIREITA */
+    }
+
+    .contrato-header .expand {
+        grid-row: 1 / 3; /* Faz o ícone expandir por duas linhas */
+        align-self: center;
+        justify-self: end; /* ⬅️ GARANTE ALINHAMENTO À EXTREMA DIREITA */
+    }
+    
+    .contrato-detalhes p,
+    .pagamento-detalhes p {
+        font-size: 12px; /* Reduz o texto dos detalhes */
+    }
+
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal no mobile */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
+}
+
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}

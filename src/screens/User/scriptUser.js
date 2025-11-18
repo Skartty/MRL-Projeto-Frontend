@@ -89,3 +89,68 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCarousel(false);
   startAutoSlide();
 });
+
+// === POPUPS DE CONFIRMAÇÃO ===
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Função para criar o pop-up genérico
+  function criarPopup(mensagem, duracao = 0) {
+    const popup = document.createElement("div");
+    popup.className = "popup-overlay";
+    popup.innerHTML = `
+      <div class="popup-box">
+        <p>${mensagem}</p>
+        <button id="popup-ok">OK</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    const botaoOk = popup.querySelector("#popup-ok");
+    botaoOk.addEventListener("click", () => popup.remove());
+
+    if (duracao > 0) {
+      setTimeout(() => popup.remove(), duracao);
+    }
+  }
+
+  // === 1️⃣ POPUP AO SAIR ===
+  const btnSair = document.querySelector(".btn-home");
+  if (btnSair) {
+    btnSair.addEventListener("click", (e) => {
+      e.preventDefault();
+      criarPopup("Você saiu da conta com sucesso!");
+
+      const popup = document.querySelector(".popup-overlay");
+      popup.querySelector("#popup-ok").addEventListener("click", () => {
+        window.location.href = "/screens/Home/index.html";
+      });
+    });
+  }
+
+  // === 2️⃣ POPUP AO ENVIAR AVALIAÇÃO ===
+  const formAvaliacao = document.querySelector(".avaliacao-form");
+  if (formAvaliacao) {
+    formAvaliacao.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // --- VALIDAÇÃO ---
+      const estrelas = formAvaliacao.querySelector('input[name="estrela"]:checked');
+      const servico = formAvaliacao.querySelector("#servico").value;
+
+      if (!estrelas) {
+        criarPopup("Por favor, selecione uma quantidade de estrelas antes de enviar!");
+        return;
+      }
+
+      if (!servico) {
+        criarPopup("Por favor, selecione um serviço antes de enviar!");
+        return;
+      }
+
+      // Se passou na validação
+      criarPopup("✅ Avaliação enviada com sucesso! Obrigado por compartilhar sua opinião.");
+      formAvaliacao.reset();
+    });
+  }
+});
+

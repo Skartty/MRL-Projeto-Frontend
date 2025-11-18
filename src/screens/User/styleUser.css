@@ -39,7 +39,6 @@ body {
   list-style: none;
   display: flex;
   gap: 20px;
-  padding-top: 2.5%;
 }
 .nav a {
   color: #ffffff;           /* cor inicial do texto */
@@ -462,6 +461,62 @@ body {
   background: #cc5200;
 }
 
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 
 /* ===== RODAPÉ ===== */
@@ -583,6 +638,183 @@ body {
 /* RESPONSIVIDADE */
 /* ====================== */
 
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* HEADER: Oculta a NAV padrão e prepara para o menu mobile (se for implementado via JS) */
+    .header {
+        padding: 15px 5%;
+    }
+    .nav {
+        /* Oculta o menu de texto para dar espaço */
+        display: none; 
+    }
+    
+    /* BANNER */
+    .banner {
+        height: 60vh; /* Altura reduzida */
+    }
+    .banner h1 {
+        font-size: 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* MENU RÁPIDO */
+    .menu-rapido {
+        padding: 60px 10px;
+    }
+    .menu-grid {
+        gap: 50px; /* Reduz a distância entre os itens */
+    }
+    .menu-item img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* SERVIÇOS (CARROSSEL) */
+    .servicos {
+        padding: 40px 0; /* Remove padding lateral para o carrossel respirar */
+    }
+    
+    /* Permite que apenas 2 cards apareçam no carrossel */
+    .carousel {
+        max-width: 780px; /* Largura para 2 cards (360px*2 + 10px*4 margens) */
+    }
+
+    /* Botões do carrossel */
+    .carousel .prev {
+        left: 5px; /* Mais próximos da borda */
+    }
+    .carousel .next {
+        right: 5px; /* Mais próximos da borda */
+    }
+
+    /* AVALIAÇÕES */
+    .avaliacoes-dashboard {
+        width: 90%;
+        padding: 30px 15px;
+    }
+    .avaliacao-form {
+        width: 100%; /* Ocupa 100% da largura do container (90%) */
+    }
+    
+    /* RODAPÉ */
+    .footer-content {
+        justify-content: space-around; /* Centraliza melhor os blocos */
+        gap: 30px;
+    }
+    .footer-left {
+        min-width: 300px;
+    }
+    .footer-right {
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    /* HEADER: Adiciona um botão de menu (não funcional com apenas CSS, mas essencial para o layout) */
+    .header {
+        padding: 10px 5%;
+        position: relative; /* Remove fixed para liberar espaço vertical */
+    }
+    .header .logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .btn-home img {
+        width: 25px;
+        height: 25px;
+    }
+    .btn-home::after {
+        content: "Sair";
+        bottom: -25px;
+        font-size: 10px;
+    }
+
+    /* BANNER: Reduz o tamanho e ajuste de margem */
+    .banner {
+        height: 40vh;
+        margin-top: 0; /* O header não é mais fixo, então não precisa de margin */
+    }
+    .banner h1 {
+        font-size: 1.5rem;
+    }
+
+    /* MENU RÁPIDO: Muda para 2 colunas e REDUZ TAMANHO */
+    .menu-grid {
+        justify-content: space-around;
+        gap: 15px 5px; /* Reduz um pouco mais o gap */
+    }
+    .menu-item {
+        width: 48%; /* Aumenta a largura para garantir que caiba com o gap reduzido */
+        gap: 5px; /* Reduz o espaço entre o ícone e o texto */
+    }
+    
+    .menu-item img {
+        width: 65px; /* REDUZIDO: de 80px para 65px */
+        height: 65px;
+    }
+    
+    .menu-item p {
+        font-size: 14px; /* REDUZIDO: o texto fica menor */
+        font-weight: 500;
+        text-align: center;
+    }
+
+    /* SERVIÇOS (CARROSSEL) */
+    .carousel {
+        max-width: 380px; /* Largura para 1 card */
+    }
+    .servico-card {
+        min-width: 300px; /* Card menor */
+        max-width: 300px;
+    }
+    .servico-card img {
+        height: 450px; /* Altura da imagem ajustada */
+    }
+
+    /* AVALIAÇÕES: O formulário quebra as linhas */
+    .avaliacoes-dashboard {
+        width: 95%;
+    }
+    .rating {
+        justify-content: center; /* Centraliza as estrelas */
+        gap: 10px;
+    }
+    .rating label {
+        font-size: 24px;
+    }
+    
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal no mobile */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
+}
 
 
 /* ====================== */
@@ -601,4 +833,41 @@ body {
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
 }

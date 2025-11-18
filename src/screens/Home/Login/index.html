@@ -2,44 +2,47 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - MRL</title>
-  <link rel="stylesheet" href="/screens/Home/Login/styleLogin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MRL</title>
+    <link rel="stylesheet" href="/screens/Home/Login/styleLogin.css">
+    <link rel="stylesheet" href="/screens/Acessibilidade/acessibilidade.css">
 </head>
 <body>
 
-  <!-- CONTAINER LOGIN -->
-  <div class="login-container">
-    <div class="login-box">
-      
-      <!-- COLUNA FORMULÁRIO -->
-      <div class="login-form">
-        <h2>Login</h2>
-        <form id="formLogin">
-        <input id="loginEmail" type="email" placeholder="E-mail" required>
-        <input id="loginSenha" type="password" placeholder="Senha" required>
-        
-        <div id="socialLogin" class="social-login">
-          <img src="/screens/Home/Imagens/Icon_Facebook.png" alt="Facebook">
+    <!-- CONTAINER LOGIN -->
+    <div class="login-container">
+        <div class="login-box">
+
+            <!-- COLUNA FORMULÁRIO -->
+            <div class="login-form">
+                <h2>Login</h2>
+
+                <form id="formLogin">
+                    <input id="loginEmail" type="email" placeholder="E-mail" required>
+                    <input id="loginSenha" type="password" placeholder="Senha" required>
+
+                    <div id="socialLogin" class="social-login">
+                        <img src="/screens/Home/Imagens/Icon_Facebook.png" alt="Login com Facebook">
+                    </div>
+
+                    <button type="submit" class="btn-login">Entrar</button>
+                </form>
+
+                <p class="link-cadastro">
+                    Não tem uma conta? <a href="/screens/Home/#cadastro">Cadastre-se</a>
+                </p>
+            </div>
+
+            <!-- COLUNA ROBÔ -->
+            <div class="login-robo">
+                <img src="/screens/Home/Imagens/Robo_Cadastro.png" alt="Imagem de um robô">
+            </div>
+
         </div>
-
-        <button type="submit" class="btn-login">Entrar</button>
-      </form>
-
-        <p class="link-cadastro">
-          Não tem uma conta? <a href="/screens/Home/#cadastro">Cadastre-se</a>
-        </p>
-      </div>
-
-      <!-- COLUNA ROBÔ -->
-      <div class="login-robo">
-        <img src="/screens/Home/Imagens/Robo_Cadastro.png" alt="Robo mascote">
-      </div>
-      
     </div>
-  </div>
 
-  <script type="module" src="../../../JS/Auth.js"></script>   
+    <script src="/screens/Acessibilidade/acessibilidade.js"></script>
+    <script type="module" src="../../../JS/Auth.js"></script>
 
 </body>
 </html>

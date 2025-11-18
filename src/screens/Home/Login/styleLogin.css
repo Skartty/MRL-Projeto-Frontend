@@ -113,21 +113,111 @@ body {
   text-decoration: underline;
 }
 
+/* ... (Seu CSS original até aqui, não alterado) ... */
+
 /* COLUNA ROBÔ */
 .login-robo img {
   width: 250px;
 }
 
-/* RESPONSIVO */
+/* ====================== */
+/* RESPONSIVIDADE OTIMIZADA */
+/* ====================== */
+
+/* Otimização para tablets e desktops menores */
 @media (max-width: 900px) {
   .login-box {
-    flex-direction: column; /* em telas menores fica embaixo */
-    width: 90%;
+    /* Mantém o layout de coluna, mas reduz a largura e padding */
+    flex-direction: column;
+    width: 80%; /* Ocupa 80% da tela */
     padding: 40px;
+    gap: 20px; /* Reduz o espaço entre o formulário e o robô */
   }
 
   .login-robo img {
-    width: 150px;
+    width: 180px; /* Reduz o robô */
     margin-top: 20px;
   }
+}
+
+/* Otimização para Dispositivos Mobile (Celulares) */
+@media (max-width: 550px) {
+  
+  /* Garantir que a tela seja scrollable se necessário */
+  body {
+    height: auto;
+    min-height: 100vh; /* Garante que o fundo cubra a tela, mas permite rolagem */
+    padding: 40px 0; /* Adiciona padding vertical para o box não tocar nas bordas */
+    align-items: flex-start; /* Alinha no topo quando há rolagem */
+  }
+
+  .login-box {
+    width: 90%; /* Aumenta para 90% da tela no mobile */
+    padding: 30px 20px; /* Reduz o padding interno */
+    margin: 0 auto;
+  }
+  
+  /* MANTÉM O ROBÔ, MAS MUITO MENOR */
+  .login-robo {
+    display: block; /* Garante que ele está visível */
+    text-align: center; /* Centraliza a imagem se ela for menor que a div */
+  }
+  
+  .login-robo img {
+    width: 100px; /* Reduz drasticamente a largura do robô (ex: 100px) */
+    margin: 10px auto 0; /* Centraliza e adiciona margem no topo */
+  }
+
+  .login-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .login-form input,
+  .btn-login {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .social-login {
+    margin: 15px 0 25px;
+  }
+}
+
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
 }

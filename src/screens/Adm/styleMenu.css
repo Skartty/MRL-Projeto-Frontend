@@ -115,6 +115,7 @@ body {
   align-items: center;
   color: #fff;
   margin-bottom: 30px;
+  padding-top: 80px;
 }
 .banner img {
   position: absolute;
@@ -140,6 +141,9 @@ body {
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(50px); 
+  z-index: 5;
+  position: relative;
 }
 
 /* Abas */
@@ -200,7 +204,74 @@ body {
   opacity: 0.8;
 }
 
+/* Botão de recibo */
+.btn-recibo img {
+  transition: transform 0.2s ease;
+  width: 25px;
+  height: 25px;
+  margin-left: 10%;
+}
+.btn-recibo:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
 
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* ===== RODAPÉ ===== */
 .footer {
@@ -315,4 +386,275 @@ body {
   width: 100%;
   margin-left: 2%;
 }
+/* ======================================================= */
+/*                 REGRAS DE RESPONSIVIDADE               */
+/* ======================================================= */
 
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* Ajuste do Container Principal */
+    .perfil-container {
+        width: 90%; /* Aumenta a largura para ocupar mais espaço na tela */
+        padding: 20px;
+        transform: translateY(-50px); /* Ajusta para ficar mais próximo do banner */
+    }
+    
+    /* Header: Ajusta padding em telas menores */
+    .header {
+        padding: 15px 5%;
+    }
+
+    /* Abas: Permite que as abas quebrem linha e reduz padding */
+    .tabs {
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 5px; 
+    }
+    .tab-button {
+        padding: 8px 15px; 
+        font-size: 13px;
+    }
+    
+    /* Rodapé: Centraliza e ajusta as colunas */
+    .footer-content {
+        flex-direction: column; /* Empilha as colunas */
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-left,
+    .footer-right {
+        min-width: auto;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; 
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+
+    /* HEADER: Exibe e compacta o cabeçalho em mobile */
+    .header {
+        display: flex; /* Garante que ele apareça */
+        padding: 10px 15px; /* Reduz o padding para ser mais compacto */
+        height: 60px; /* Define uma altura fixa para não depender do conteúdo */
+        align-items: center;
+        background: #000; /* Garante um fundo sólido preto */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    /* Reduz o tamanho dos ícones no mobile */
+    .btn-User img {
+        width: 30px;
+        height: 30px;
+    }
+    .btn-home img {
+        width: 24px;
+        height: 24px;
+    }
+    /* Oculta os tooltips (texto de "Voltar" e "Sair") para economizar espaço vertical no mobile */
+    .btn-User::after,
+    .btn-home::after {
+        display: none;
+    }
+
+    /* BANNER: Ajuste para ocupar o topo da tela */
+    .banner {
+        height: 15vh; /* Altura ainda mais reduzida para mobile */
+        margin-bottom: 15px;
+        margin-top: 60px;
+    }
+
+    /* Ajuste do Container Principal: Ocupa quase 100% da largura */
+    .perfil-container {
+        width: 98%; /* Quase 100% */
+        padding: 10px; /* Reduz padding */
+        margin: 0 auto 20px;
+        transform: translateY(30px); /* Ajusta a subida */
+        margin-bottom: 80px;
+    }
+
+    /* ABAS: Empilhamento vertical ou rolagem compacta */
+    .tabs {
+        flex-wrap: wrap; /* Força as abas a quebrar linha */
+        justify-content: center; 
+        margin-bottom: 15px;
+        gap: 5px 2px; /* Reduz o gap entre as abas */
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 10px;
+    }
+    .tab-button {
+        padding: 8px 10px; 
+        font-size: 11px; /* Fonte menor */
+        border-bottom: none; 
+    }
+    .tab-button.active {
+        border-bottom: 2px solid #ff6600; 
+    }
+
+    /* TABELAS: Compressão e Redução de Fonte */
+    .table {
+        width: 100%;
+        font-size: 0.8em; 
+        margin-bottom: 1rem;
+    }
+    .table thead th,
+    .table tbody td {
+        padding: 0.5rem 0.3rem; /* Reduz o padding das células */
+        vertical-align: middle;
+    }
+    
+    /* Todas as abas por padrão não têm scroll */
+    .tab-content { 
+        overflow-x: hidden;
+    }
+
+    /* === SCROLL LOCALIZADO E EXIBIÇÃO TOTAL DE DADOS === */
+    
+    /* 1. ABA CLIENTES: Permite scroll horizontal */
+    #clientes.tab-content {
+        overflow-x: auto; /* Adiciona scroll horizontal */
+    }
+    /* Força a largura da tabela de clientes para exibir todas as 4 colunas */
+    #clientes .table {
+        min-width: 500px; 
+    }
+    /* Garante que todas as colunas sejam exibidas (reverte o display: none de outros layouts) */
+    #clientes .table th,
+    #clientes .table td {
+        display: table-cell !important; 
+    }
+
+    /* 2. ABA SERVIÇOS: Permite scroll horizontal */
+    #servicos.tab-content {
+        overflow-x: auto; /* Adiciona scroll horizontal */
+    }
+    /* Força a largura da tabela de serviços para exibir todas as 5 colunas */
+    #servicos .table {
+        min-width: 700px;
+    }
+    /* Garante que todas as colunas sejam exibidas */
+    #servicos .table th,
+    #servicos .table td {
+        display: table-cell !important;
+    }
+    
+    /* Ajustes específicos para botões na tabela de Serviços */
+    #servicos .table td:nth-child(5) button {
+        padding: 3px 6px; 
+        font-size: 0.7em;
+        margin: 2px;
+    }
+    
+    /* === REGRAS PARA OCULTAR COLUNAS NAS ABAS SEM SCROLL === */
+    /* Estas abas precisam ocultar colunas para caberem na tela sem rolagem */
+
+    /* ABA CONTRATOS */
+    #contratos .table th:nth-child(1), #contratos .table td:nth-child(1) { display: none; } /* ID */
+    #contratos .table th:nth-child(5), #contratos .table td:nth-child(5) { display: none; } /* Data */
+
+    /* ABA PAGAMENTOS */
+    #pagamentos .table th:nth-child(1), #pagamentos .table td:nth-child(1) { display: none; } /* ID */
+    #pagamentos .table th:nth-child(5), #pagamentos .table td:nth-child(5) { display: none; } /* Forma de Pagamento */
+
+
+    /* AVALIAÇÕES: Ajuste do Card */
+    .avaliacao-card {
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+    }
+    .avaliacao-card p {
+        margin-bottom: 5px;
+    }
+    .icone-olho {
+        right: 10px;
+        top: 10px;
+    }
+    .icone-olho img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* CARROSSEL: Ajustes de botões */
+    #carrossel button {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        margin-right: 5px;
+        margin-bottom: 5px; 
+    }
+
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal no mobile */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}

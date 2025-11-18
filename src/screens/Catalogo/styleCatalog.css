@@ -109,7 +109,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 200;
+  z-index: 1010;
 }
 
 .filtro-opcoes.active {
@@ -558,9 +558,208 @@ body {
 }
 
 /* ====================== */
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE DO CATÁLOGO */
 /* ====================== */
 
+/* ---------------------------------------------------- */
+/* 1. Desktops Menores (max-width: 1200px) */
+/* ---------------------------------------------------- */
+@media (max-width: 1200px) {
+    /* CATÁLOGO GRID: Passa de 3 para 2 colunas */
+    .catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    /* CARD: Diminui a largura máxima e centraliza melhor */
+    .card-servico {
+        width: 100%; /* Ocupa a largura da coluna */
+        max-width: 350px; /* Limita o tamanho em telas maiores que 992px */
+    }
+
+    /* CABEÇALHO FIXO: Diminui margens */
+    .catalogo-header {
+        padding: 15px 25px;
+    }
+    
+    /* FILTROS SUPERIORES: Diminui o gap */
+    .finalidade-filtros {
+        gap: 30px;
+        margin-top: 80px; /* Garante que o conteúdo não fique sob o header */
+    }
+
+    .btn-finalidade {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    /* BARRA DE BUSCA: Aumenta para ocupar mais espaço */
+    .search-container {
+        width: 60%;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 1. Tablets (max-width: 992px) - 2 cards por linha */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* CABEÇALHO FIXO: Diminui margens */
+    .catalogo-header {
+        padding: 15px 20px;
+    }
+    
+    /* BARRA DE BUSCA: Aumenta para ocupar mais espaço */
+    .search-container {
+        width: 55%;
+    }
+
+    /* FILTROS SUPERIORES: */
+    .finalidade-filtros {
+        gap: 20px;
+        margin-top: 80px; 
+    }
+
+    /* CATÁLOGO GRID: Passa de 3 para 2 colunas */
+    .catalogo-grid {
+        grid-template-columns: repeat(2, 1fr); /* ⬅️ Dois cards lado a lado */
+        gap: 30px;
+    }
+    
+    /* CARD: A largura máxima é removida para que o 1fr funcione melhor */
+    .card-servico {
+        max-width: none;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    /* CABEÇALHO FIXO: Empilha a busca abaixo dos botões */
+    .catalogo-header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+        height: auto; /* Permite que o header cresça */
+    }
+
+    /* BOTÃO VOLTAR / CARRINHO */
+    .btn-voltar {
+        width: 30px;
+        height: 30px;
+        order: 1; /* Posição 1 */
+    }
+    .cart-container {
+        order: 3; /* Posição 3 */
+    }
+
+    /* BARRA DE BUSCA: Ocupa 100% da largura, em uma nova linha */
+    .search-container {
+        width: 100%;
+        order: 4; /* Posição 4 (abaixo de tudo) */
+        margin-top: 10px;
+    }
+
+    /* FILTROS SUPERIORES: Ajusta a margem superior (agora que o header é maior) */
+    .finalidade-filtros {
+        flex-direction: column; /* Empilha os botões */
+        gap: 10px;
+        padding: 0 15px;
+        margin-top: 130px; /* Ajusta a margem para ficar abaixo do header expandido */
+    }
+    .btn-finalidade {
+        width: 100%; /* Ocupa a largura total */
+        padding: 10px;
+        font-size: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    
+    /* CATÁLOGO GRID: 1 coluna no celular */
+    .catalogo {
+        padding: 20px 4%; /* ⬅️ Reduz o padding geral da seção */
+    }
+    .catalogo-grid {
+        grid-template-columns: 1fr; /* ⬅️ Volta para 1 card por linha no celular */
+        gap: 20px;
+    }
+    .card-servico {
+        /* Mantém as regras: width: 100%; max-width: none; */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* ⬅️ Sombra mais sutil */
+    }
+    
+    /* Imagem */
+    .card-imagem {
+        height: 140px; /* ⬅️ Reduz a altura da imagem */
+    }
+
+    /* Triângulo preço */
+    .preco::before {
+        top: 80px; /* ⬅️ Ajusta a posição do triângulo */
+    }
+    .preco p {
+        margin-top: 95px; /* ⬅️ Ajusta a posição do texto do preço */
+        font-size: 14px; /* ⬅️ Fonte um pouco menor */
+    }
+
+    /* Conteúdo */
+    .card-conteudo {
+        padding: 15px; /* ⬅️ Reduz drasticamente o padding interno do card */
+    }
+    .card-conteudo h3 {
+        font-size: 14px; /* ⬅️ Reduz o tamanho do título */
+        margin-bottom: 8px; /* ⬅️ Menos margem */
+    }
+    .card-conteudo p {
+        font-size: 12px; /* ⬅️ Reduz a fonte da descrição */
+        margin-bottom: 12px; /* ⬅️ Menos margem */
+    }
+
+    /* Lista com linhas */
+    .card-lista li {
+        font-size: 12px; /* ⬅️ Reduz a fonte da lista */
+        padding: 6px 0; /* ⬅️ Reduz o padding da lista */
+    }
+    .check-icon {
+        width: 14px;
+        height: 14px;
+        /* margin-left: 0; (já estava na correção anterior) */
+    }
+
+    /* Botão */
+    .btn-contratar {
+        padding: 8px 15px; /* ⬅️ Botão mais compacto */
+        font-size: 13px;
+    }
+    
+    /* CARRINHO */
+    .carrinho-container {
+        width: 85%; /* Ocupa mais espaço na tela do celular */
+    }
+
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal no mobile */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
+}
 
 
 /* ====================== */
@@ -579,4 +778,41 @@ body {
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
 }

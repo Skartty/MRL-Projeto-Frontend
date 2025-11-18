@@ -12,6 +12,7 @@ body {
   line-height: 1.5;
 }
 
+
 /* ===== HEADER ===== */
 .header {
   display: flex;
@@ -418,7 +419,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .social-login img {
@@ -609,154 +610,255 @@ body {
 }
 
 
+/* ... (Seu CSS padrão, não alterado) ... */
+/* ... */
+
 /* ====================== */
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE OTIMIZADA E CORRIGIDA */
 /* ====================== */
 
-/* Tablets (até 1024px) */
-@media (max-width: 1024px) {
-  .header {
-    flex-wrap: wrap;
-    padding: 15px 5%;
-  }
-
-  .nav ul {
-    gap: 10px;
-    padding-top: 0;
-    flex-wrap: wrap;
-  }
-
-  .banner h1 {
-    font-size: 2rem;
-  }
-
-  .banner p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
-
-  .servico-card {
-    min-width: 300px;
-    max-width: 300px;
-  }
-
-  .servico-card img {
-    height: 500px;
-  }
-
-  .cadastro {
-    padding: 40px 10%;
-    width: 95%;
-    height: auto;
-  }
-
-  .avaliacoes {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 50px 5%;
-  }
-}
-
-/* Celulares (até 768px) */
+/* ---------------------------------------------------- */
+/* 1. Celulares e Tablets Pequenos (max-width: 768px) */
+/* ---------------------------------------------------- */
 @media (max-width: 768px) {
-  /* HEADER */
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .header .logo img {
-    width: 60px;
-    height: 60px;
-  }
-  .nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-  .btn-outline {
-    align-self: center;
-  }
 
-  /* BANNER */
-  .banner {
-    height: 70vh;
-    padding: 20px;
-  }
-  .banner h1 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-  .banner p {
-    font-size: 0.95rem;
-    text-align: center;
-  }
-  .btn-cadastrese {
-    width: auto;
-    padding: 10px 20px;
-  }
+    /* HEADER */
+    .header {
+        /* Garante 100% de largura e padding padrão */
+        padding: 10px 4%;
+        height: 65px; /* Altura fixa */
+        justify-content: space-between; /* Logo e botões em extremidades */
+        align-items: center;
+        flex-wrap: nowrap; /* Impede quebra para manter a linha única */
+    }
 
-  /* SOBRE */
-  .sobre-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .sobre-item {
-    border-right: none;
-    border-bottom: 2px solid #e65100;
-  }
-  .sobre-item:last-child {
-    border-bottom: none;
-  }
+    /* Oculta links do menu no mobile por padrão */
+    .nav {
+        /* Esconde o menu de navegação por padrão */
+        display: none;
+        position: absolute;
+        top: 65px; /* Fica abaixo do header */
+        left: 0;
+        width: 100%;
+        background: #000000; /* Cor de fundo do menu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        z-index: 5;
+        padding-bottom: 10px;
+    }
 
-  /* SERVIÇOS */
-  .servico-card {
-    min-width: 250px;
-    max-width: 250px;
-  }
-  .servico-card img {
-    height: 400px;
-  }
+    /* Exibe o menu quando a classe 'open' é adicionada */
+    .nav.open {
+        display: block;
+    }
 
-  /* CADASTRO */
-  .cadastro {
-    padding: 20px;
-    width: 95%;
-    height: auto;
-  }
-  .cadastro form {
-    gap: 10px;
-  }
-  .cadastro .linha, 
-  .cadastro .linha1 {
-    flex-direction: column;
-  }
-  .cadastro-robo {
-    display: none; /* esconde robo no celular */
-  }
+    .nav ul {
+        flex-direction: column; /* Links um abaixo do outro */
+        align-items: center;
+        gap: 0;
+    }
+    .nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav li:last-child {
+        border-bottom: none;
+    }
+    .nav a {
+        display: block;
+        padding: 12px 0; /* Aumenta a área clicável */
+    }
 
-  /* AVALIAÇÕES */
-  .avaliacoes {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 40px 5%;
-  }
-  .avaliacao {
-    max-width: 100%;
-    font-size: 13px;
-  }
+    /* Botão Hamburguer */
+    .menu-toggle {
+        display: block; /* Mostra apenas no mobile */
+        background: none;
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px 10px;
+    }
 
-  /* RODAPÉ */
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    margin-left: 0;
-    gap: 20px;
-  }
-  .footer-info, .footer-social {
-    text-align: center;  
-  }
+    /* Oculta o botão 'Entrar' e navegação no mobile */
+    .btn-outline {
+        display: none; /* Oculta o botão 'Entrar' */
+    }
+    
+    /* Move o botão 'Entrar' para dentro do menu (opcional) */
+    .nav.open + .btn-outline {
+        display: block;
+        align-self: center;
+        margin: 10px auto;
+        width: fit-content;
+    }
+
+
+    /* BANNER */
+    .banner {
+        height: 50vh; 
+        padding-top: 50px; /* Adiciona padding para o conteúdo não ficar escondido */
+    }
+    .banner h1 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .banner p {
+        font-size: 0.9rem;
+        text-align: center;
+        max-width: 90%;
+        margin: 10px auto;
+    }
+    .btn-cadastrese {
+        width: 60%;
+        min-width: 180px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+    .banner-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    /* SOBRE */
+    .sobre {
+        padding: 40px 4%;
+    }
+    .sobre-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .sobre-item {
+        border-right: none;
+        border-bottom: 2px solid #e65100;
+        text-align: left; /* Mantém o alinhamento de texto mais natural */
+    }
+    .sobre-item:last-child {
+        border-bottom: none;
+    }
+    .sobre-item ul {
+        line-height: 2; /* Melhora a leitura da lista */
+    }
+
+
+    /* SERVIÇOS (CARROSSEL) */
+    .carousel {
+        max-width: 380px; /* Largura para 1 card */
+    }
+    .servico-card {
+        min-width: 300px; /* Card menor */
+        max-width: 300px;
+    }
+    .servico-card img {
+        height: 450px; /* Altura da imagem ajustada */
+    }
+
+    /* CADASTRO */
+    .cadastro {
+        width: 90%;
+        margin: 5% auto;
+        padding: 20px 5%;
+        height: auto;
+    }
+    .cadastro .linha,
+    .cadastro .linha1 {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .cadastro-robo {
+        display: none;
+    }
+    .cadastro .botoes .btn-primary {
+        width: 60%;
+    }
+
+    /* AVALIAÇÕES */
+    .avaliacoes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 40px 5%;
+    }
+
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal no mobile */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
 }
 
+/* ---------------------------------------------------- */
+/* 2. Laptops e Tablets Grandes (769px a 1024px) */
+/* ---------------------------------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* HEADER */
+    .header {
+        padding: 15px 4%;
+    }
+    .nav ul {
+        gap: 15px;
+    }
+    .nav a {
+        font-size: 0.9rem;
+    }
+    .btn-outline {
+        font-size: 0.9rem;
+        padding: 7px 14px;
+    }
+    .menu-toggle {
+        display: none; /* Oculta o hambúrguer em telas maiores */
+    }
+    
+    /* CARROSSEL - Ajusta para caber 2 cards confortavelmente */
+    .carousel {
+        max-width: 680px; /* Largura para 2 cards (300px + 20 margem) * 2 */
+    }
+    .servico-card {
+        min-width: 300px;
+        max-width: 300px;
+    }
+
+    /* AVALIAÇÕES */
+    .avaliacoes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* ... (outros ajustes para tablets) ... */
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. Telas Grandes (acima de 1024px) - Padrão */
+/* ---------------------------------------------------- */
+@media (min-width: 1025px) {
+    /* Garante que o menu hamburguer não apareça */
+    .menu-toggle {
+        display: none;
+    }
+    /* Garante que o carrossel use a largura padrão para 3 cards */
+    .carousel {
+        max-width: 1480px;
+    }
+}
 
 /* ====================== */
 /* AJUSTES */
@@ -775,4 +877,57 @@ body {
 html, body {
   overflow-x: hidden;
   width: 100%;
+}
+
+* {
+  transition: all 0.25s ease-in-out;
+}
+
+/* Garante que nada estoure na horizontal */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
 }

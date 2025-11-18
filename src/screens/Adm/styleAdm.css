@@ -50,7 +50,6 @@ body {
   padding: 15px 10%;
   background: #000000;
   color: #fff;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 10;
@@ -125,7 +124,7 @@ body {
 /* ===== BANNER ===== */
 .banner {
   position: relative;
-  height: 90vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,7 +363,62 @@ body {
   background: #a74401; /* tom mais escuro no hover */
 }
 
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
 
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* ===== RODAPÉ ===== */
 .footer {
@@ -502,10 +556,159 @@ body {
 }
 
 
+
 /* ====================== */
-/* RESPONSIVIDADE */
+/* RESPONSIVIDADE (ADM) */
 /* ====================== */
 
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* HEADER (Ajuste a NAV de ADM se for diferente) */
+    .header {
+        padding: 15px 5%;
+    }
+    .nav {
+        /* Oculta o menu de texto (mesmo se for diferente no ADM) */
+        display: none; 
+    }
+    
+    /* BANNER */
+    .banner {
+        height: 60vh; /* Altura reduzida */
+    }
+    .banner h1 {
+        font-size: 2rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* MENU RÁPIDO (Ajuste se o ADM tiver um menu diferente) */
+    .menu-rapido {
+        padding: 60px 10px;
+    }
+    .menu-grid {
+        gap: 50px; /* Reduz a distância entre os itens */
+    }
+    .menu-item img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Para a tela ADM, ajuste estas classes de acordo com os conteúdos dela: */
+    /* Exemplo: .dashboard-admin { width: 90%; padding: 30px 15px; } */
+    
+    /* RODAPÉ */
+    .footer-content {
+        justify-content: space-around;
+        gap: 30px;
+    }
+    .footer-left {
+        min-width: 300px;
+    }
+    .footer-right {
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    /* HEADER */    
+    .header li{
+      display: none;
+    }
+    .header .logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .btn-home img {
+        width: 25px;
+        height: 25px;
+    }
+    .btn-home::after {
+        content: "Sair";
+        bottom: -25px;
+        font-size: 10px;
+    }
+
+    /* BANNER */
+    .banner {
+        height: 40vh;
+        margin-top: 0;
+    }
+    .banner h1 {
+        font-size: 1.5rem;
+    }
+
+    /* SERVIÇOS (CARROSSEL) */
+    .carousel {
+        max-width: 380px; /* Largura para 1 card */
+    }
+    .servico-card {
+        min-width: 300px; /* Card menor */
+    }
+    .servico-card img {
+        height: 450px; /* Altura da imagem ajustada */
+    }
+    
+    .btn-catalogo{
+      margin-left: 65%;
+      width: 120px; /* Card menor */
+      height: 40px;      
+    }
+
+    .btn-catalogo a{
+      padding: 11px 10px;
+      font-size: 12px;
+    }
+
+    /* MENU RÁPIDO: Força 2 colunas */
+    .menu-grid {
+        justify-content: space-around;
+        gap: 15px 5px;
+    }
+    .menu-item {
+        width: 48%;
+        gap: 5px;
+    }
+    .menu-item img {
+        width: 65px;
+        height: 65px;
+    }
+    .menu-item p {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+    }
+    
+    /* RODAPÉ: Empilhamento total */
+    .footer {
+        padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-right {
+        min-width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-social {
+        flex-direction: row; /* Volta a ser horizontal */
+        justify-content: center;
+    }
+    .footer-logo img {
+        width: 180px;
+        height: 80px;
+        margin-top: 20px;
+    }
+}
 
 
 /* ====================== */
@@ -525,3 +728,41 @@ html, body {
   overflow-x: hidden;
   width: 100%;
 }
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; /* mantém clique normal */
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}
+
