@@ -1,16 +1,72 @@
-// CONTROLE DO MENU HAMBÚRGUER
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* ============================================
+     🔹 MÁSCARAS E VALIDAÇÕES CPF/CNPJ & TELEFONE
+     ============================================ */
+
+  function somenteNumeros(valor) {
+    return valor.replace(/\D/g, "");
+  }
+
+  function aplicarMascaraCpfCnpj(valor) {
+    valor = somenteNumeros(valor);
+
+    if (valor.length <= 11) {
+      // CPF = 000.000.000-00
+      valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+      valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+      valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else {
+      // CNPJ = 00.000.000/0000-00
+      valor = valor.replace(/^(\d{2})(\d)/, "$1.$2");
+      valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+      valor = valor.replace(/\.(\d{3})(\d)/, ".$1/$2");
+      valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
+    }
+
+    return valor;
+  }
+
+  function aplicarMascaraTelefone(valor) {
+    valor = somenteNumeros(valor);
+
+    if (valor.length <= 10) {
+      valor = valor.replace(/(\d{2})(\d)/, "($1) $2");
+      valor = valor.replace(/(\d{4})(\d)/, "$1-$2");
+    } else {
+      valor = valor.replace(/(\d{2})(\d)/, "($1) $2");
+      valor = valor.replace(/(\d{5})(\d)/, "$1-$2");
+    }
+
+    return valor;
+  }
+
+  // Localizando os inputs (se existirem)
+  const cpfCnpjInput = document.querySelector("input[name='cpfCnpj']");
+  const telefoneInput = document.querySelector("input[name='telefone']");
+
+  if (cpfCnpjInput) {
+    cpfCnpjInput.addEventListener("input", () => {
+      cpfCnpjInput.value = aplicarMascaraCpfCnpj(cpfCnpjInput.value);
+    });
+  }
+
+  if (telefoneInput) {
+    telefoneInput.addEventListener("input", () => {
+      telefoneInput.value = aplicarMascaraTelefone(telefoneInput.value);
+    });
+  }
+
+
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
   const navLinks = document.querySelectorAll(".nav a");
 
   if (menuToggle && nav) {
-    // Alterna a classe 'open' para mostrar/esconder o menu
     menuToggle.addEventListener("click", () => {
       nav.classList.toggle("open");
     });
 
-    // Fecha o menu ao clicar em um link (navegação)
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         if (nav.classList.contains("open")) {
@@ -28,97 +84,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let index = 0;
   let autoSlide;
-  const interval = 20; // 🔹 tempo menor para efeito suave (ms)
-  const step = 0.8;    // 🔹 quanto "anda" por frame
-  const cardsPerView = 3;
+  const interval = 20;
+  const step = 0.8;
 
-  // 🔹 Clonar todos os cards para loop infinito
-  cards.forEach(card => {
-    const clone = card.cloneNode(true);
-    track.appendChild(clone);
-  });
+  if (track && cards.length > 0) {
 
-  const allCards = document.querySelectorAll(".servico-card");
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      track.appendChild(clone);
+    });
 
-  // Ajusta a largura do card baseada na tela
-  function getCardWidth() {
-    // Calcula a largura do primeiro card no momento da chamada
-    // É importante recalcular para garantir responsividade
-    const firstCard = allCards[0];
-    if (!firstCard) return 0;
-    return firstCard.offsetWidth + 20; // largura + margem
-  }
+    const allCards = document.querySelectorAll(".servico-card");
 
-  function updateCarousel(animate = true) {
-    const cardWidth = getCardWidth();
-    const moveX = index;
-
-    if (animate) {
-      track.style.transition = "transform 0.05s linear";
-    } else {
-      track.style.transition = "none";
+    function getCardWidth() {
+      const firstCard = allCards[0];
+      if (!firstCard) return 0;
+      return firstCard.offsetWidth + 20;
     }
 
-    track.style.transform = `translateX(${-moveX}px)`;
+    function updateCarousel(animate = true) {
+      const cardWidth = getCardWidth();
+      const moveX = index;
 
-    // Reset invisível quando passa do total dos cards originais (loop)
-    if (index >= cardWidth * cards.length) {
-      index = index % (cardWidth * cards.length); // Reseta o índice
-      updateCarousel(false);
+      track.style.transition = animate ? "transform 0.05s linear" : "none";
+      track.style.transform = `translateX(${-moveX}px)`;
+
+      if (index >= cardWidth * cards.length) {
+        index = index % (cardWidth * cards.length);
+        updateCarousel(false);
+      }
     }
-  }
 
-  // Avançar
-  function nextSlide() {
-    const cardWidth = getCardWidth();
-    index = Math.ceil(index / cardWidth) * cardWidth; // Arredonda para o próximo card
-    index += cardWidth;
-    updateCarousel();
-  }
-
-  // Voltar
-  function prevSlide() {
-    const cardWidth = getCardWidth();
-    if (index === 0) {
-      index = cardWidth * cards.length;
-      updateCarousel(false);
-    }
-    // Arredonda para o card anterior
-    index = Math.floor(index / cardWidth) * cardWidth;
-    index -= cardWidth;
-    updateCarousel();
-  }
-
-  // Autoplay suave
-  function startAutoSlide() {
-    autoSlide = setInterval(() => {
-      index += step;
+    function nextSlide() {
+      const cardWidth = getCardWidth();
+      index = Math.ceil(index / cardWidth) * cardWidth;
+      index += cardWidth;
       updateCarousel();
-    }, interval);
+    }
+
+    function prevSlide() {
+      const cardWidth = getCardWidth();
+      if (index === 0) {
+        index = cardWidth * cards.length;
+        updateCarousel(false);
+      }
+      index = Math.floor(index / cardWidth) * cardWidth;
+      index -= cardWidth;
+      updateCarousel();
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(() => {
+        index += step;
+        updateCarousel();
+      }, interval);
+    }
+
+    function stopAutoSlide() {
+      clearInterval(autoSlide);
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    track.addEventListener("mouseenter", stopAutoSlide);
+    track.addEventListener("mouseleave", startAutoSlide);
+
+    updateCarousel(false);
+    startAutoSlide();
   }
 
-  function stopAutoSlide() {
-    clearInterval(autoSlide);
-  }
-
-  // Eventos botões
-  nextBtn.addEventListener("click", () => {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-  });
-
-  // Pausa no hover (em qualquer card)
-  track.addEventListener("mouseenter", stopAutoSlide);
-  track.addEventListener("mouseleave", startAutoSlide);
-
-  // Inicialização
-  updateCarousel(false);
-  startAutoSlide();
 });

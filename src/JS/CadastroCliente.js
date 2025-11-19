@@ -11,7 +11,7 @@ async function CadastrarCliente(cliente) {
   const userId = await criarUsuarioAuthEmailSenha(cliente.email, cliente.senha);
   
   if (!userId) return;
-  
+
   const encryptPass = await encryptPassword(cliente.senha, "mrl-site-teste-secret");
 
   const clienteRef = doc(db, "Cliente", userId)
@@ -32,8 +32,22 @@ async function CadastrarCliente(cliente) {
 function validarFormulario(cliente) {
   if (!cliente.nome?.trim()) return "Preencha o nome.";
   if (!cliente.email?.trim()) return "Preencha o e-mail.";
+
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailValido.test(cliente.email)) return "Digite um e-mail válido.";
+
   if (!cliente.cpfCnpj?.trim()) return "Preencha o CPF/CNPJ.";
+
+  const cpfCnpjLimpo = cliente.cpfCnpj.replace(/\D/g, "");
+  if (cpfCnpjLimpo.length !== 11 && cpfCnpjLimpo.length !== 14)
+    return "CPF deve ter 11 dígitos ou CNPJ deve ter 14 dígitos.";
+
   if (!cliente.telefone?.trim()) return "Preencha o telefone.";
+
+  const telefoneLimpo = cliente.telefone.replace(/\D/g, "");
+  if (telefoneLimpo.length < 10)
+    return "Telefone inválido. Informe DDD e número (mínimo 10 dígitos).";
+
   if (!cliente.senha?.trim()) return "Preencha a senha.";
   if (!cliente.confirmarSenha?.trim()) return "Confirme a senha.";
   

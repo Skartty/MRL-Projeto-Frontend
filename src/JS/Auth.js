@@ -6,7 +6,11 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { db } from "./firebase_config.js";
-import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  doc,
+  setDoc,
+  getDoc,
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ==============================
    🧩 FUNÇÃO POPUP DE AVISO BETA (com animação)
@@ -93,14 +97,16 @@ function mostrarAvisoBeta(callback) {
   });
 }
 
-
 /* ==============================
    🔐 MONITORAMENTO DE LOGIN
    ============================== */
 export function monitorarAuthRedirecionar() {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      console.log("👤 Usuário logado automaticamente:", user.email || user.displayName);
+      console.log(
+        "👤 Usuário logado automaticamente:",
+        user.email || user.displayName
+      );
 
       try {
         const clienteRef = doc(db, "Cliente", user.uid);
@@ -110,27 +116,32 @@ export function monitorarAuthRedirecionar() {
           const cliente = clienteSnap.data();
           const currentPath = window.location.pathname;
 
-          if (cliente.admin === true && !currentPath.includes("/screens/Adm/")) {
+          if (
+            cliente.admin === true &&
+            !currentPath.includes("/screens/Adm/")
+          ) {
             console.log("🔐 Redirecionando para área de Admin...");
 
             // Exibe o popup ANTES do redirecionamento
             mostrarAvisoBeta(() => {
               window.location.href = "/screens/Adm/";
             });
-
-          } else if (!cliente.admin && !currentPath.includes("/screens/User/")) {
+          } else if (
+            !cliente.admin &&
+            !currentPath.includes("/screens/User/")
+          ) {
             console.log("👤 Redirecionando para área de Perfil...");
 
             mostrarAvisoBeta(() => {
               window.location.href = "/screens/User/";
             });
           }
-
         } else {
-          console.warn("⚠️ Cliente não encontrado. Redirecionando para Perfil.");
+          console.warn(
+            "⚠️ Cliente não encontrado. Redirecionando para Perfil."
+          );
           window.location.href = "/screens/Home/";
         }
-
       } catch (error) {
         console.error("❌ Erro ao buscar dados do cliente:", error);
         window.location.href = "/screens/Home/";
@@ -189,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrarAvisoBeta(() => {
           window.location.href = "/screens/User/";
         });
-
       } catch (error) {
         console.error("❌ Erro no login com Facebook:", error);
         alert("Erro ao fazer login com Facebook. Verifique o console.");
@@ -211,7 +221,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          senha
+        );
         const user = userCredential.user;
 
         console.log("✅ Login bem-sucedido:", user.email);
@@ -234,7 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "/screens/User/";
           });
         }
-
       } catch (error) {
         console.error("❌ Erro no login com e-mail/senha:", error);
         alert("E-mail ou senha incorretos.");
@@ -248,13 +261,21 @@ document.addEventListener("DOMContentLoaded", () => {
    ============================== */
 export async function criarUsuarioAuthEmailSenha(email, senha) {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      senha
+    );
     const user = userCredential.user;
     console.log("✅ Usuário criado no Firebase Auth:", user.uid);
     return user.uid;
-
   } catch (error) {
     console.error("❌ Erro ao criar usuário no Auth:", error);
+
+    if (error.code === "auth/invalid-email") {
+      alert("O e-mail informado é inválido.");
+      return null;
+    }
 
     if (error.code === "auth/email-already-in-use") {
       alert("Este e-mail já está cadastrado. Tente fazer login.");
@@ -281,14 +302,11 @@ export async function loginUsuarioEmail(email, senha) {
 
     if (error.code === "auth/user-not-found") {
       alert("Nenhuma conta encontrada com este e-mail.");
-    } 
-    else if (error.code === "auth/wrong-password") {
+    } else if (error.code === "auth/wrong-password") {
       alert("Senha incorreta. Tente novamente.");
-    } 
-    else if (error.code === "auth/invalid-email") {
+    } else if (error.code === "auth/invalid-email") {
       alert("E-mail inválido.");
-    } 
-    else {
+    } else {
       alert("Erro ao fazer login. Tente novamente.");
     }
   }
