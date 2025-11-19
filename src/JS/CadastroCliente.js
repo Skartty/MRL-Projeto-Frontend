@@ -9,6 +9,9 @@ import { criarUsuarioAuthEmailSenha } from "./Auth.js";
 async function CadastrarCliente(cliente) {
   
   const userId = await criarUsuarioAuthEmailSenha(cliente.email, cliente.senha);
+  
+  if (!userId) return;
+  
   const encryptPass = await encryptPassword(cliente.senha, "mrl-site-teste-secret");
 
   const clienteRef = doc(db, "Cliente", userId)
@@ -33,8 +36,13 @@ function validarFormulario(cliente) {
   if (!cliente.telefone?.trim()) return "Preencha o telefone.";
   if (!cliente.senha?.trim()) return "Preencha a senha.";
   if (!cliente.confirmarSenha?.trim()) return "Confirme a senha.";
+  
+  if (cliente.senha.length < 6)
+    return "A senha deve ter pelo menos 6 caracteres.";
+
   if (cliente.senha !== cliente.confirmarSenha)
     return "As senhas não conferem.";
+
   return null;
 }
 

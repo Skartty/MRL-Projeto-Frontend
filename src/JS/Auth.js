@@ -252,8 +252,15 @@ export async function criarUsuarioAuthEmailSenha(email, senha) {
     const user = userCredential.user;
     console.log("✅ Usuário criado no Firebase Auth:", user.uid);
     return user.uid;
+
   } catch (error) {
     console.error("❌ Erro ao criar usuário no Auth:", error);
+
+    if (error.code === "auth/email-already-in-use") {
+      alert("Este e-mail já está cadastrado. Tente fazer login.");
+      return null;
+    }
+
     throw error;
   }
 }
@@ -270,7 +277,19 @@ export async function loginUsuarioEmail(email, senha) {
 
     return user;
   } catch (error) {
-    console.error("❌ Erro no login com e-mail/senha:", error);
-    alert("E-mail ou senha inválidos.");
+    console.error("❌ Erro no login:", error);
+
+    if (error.code === "auth/user-not-found") {
+      alert("Nenhuma conta encontrada com este e-mail.");
+    } 
+    else if (error.code === "auth/wrong-password") {
+      alert("Senha incorreta. Tente novamente.");
+    } 
+    else if (error.code === "auth/invalid-email") {
+      alert("E-mail inválido.");
+    } 
+    else {
+      alert("Erro ao fazer login. Tente novamente.");
+    }
   }
 }
